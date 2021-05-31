@@ -16,6 +16,7 @@
 商品の発注作業
 
 ## 設計書
+制作中
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1hM5EuI3z-AePm0_sszW3ufJyBUHxUbqcdeV73iX-R1k/edit?usp=sharing
