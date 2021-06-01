@@ -47,7 +47,17 @@
 商品の発注作業
 
 ## 設計書
-制作中
+ER図  
+https://app.diagrams.net/#G19iTHr_d2Y2OvHuZlQIgLbxHMTs1wUSNa
+
+詳細設計  
+https://docs.google.com/spreadsheets/d/1uF0D0IDz9MTQxbZjy7NHDtbbLngJ--ik/edit#gid=1802439833
+
+テーブル定義書  
+https://docs.google.com/spreadsheets/d/1ED_brXPEKNCAZz3wSlog2uAP58_aBZS2/edit#gid=1243549839
+
+ワイヤーフレーム  
+https://app.diagrams.net/#G1LZScXKunZ1rS2G1wTlLlmkbE0iOA6q3i
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1hM5EuI3z-AePm0_sszW3ufJyBUHxUbqcdeV73iX-R1k/edit?usp=sharing
