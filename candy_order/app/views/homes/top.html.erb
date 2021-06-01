@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 offset-3">
+      <h1>ようこそ CandyOrderへ</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="icon">
+       <%= image_tag 'candy.png', class:'icon' %>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-9 offset-2">
+      <h3>このサイトではお菓子の発注をすることが出来ます。</br>
+        会員登録をしなくても商品一覧を見る事は出来ますが、</br>
+        発注する際には会員登録が必要です。
+      </h3>
+     <h3>会員登録は <%= link_to "こちら", new_shop_registration_path %></h3>
+    </div>
+  </div>
+</div>

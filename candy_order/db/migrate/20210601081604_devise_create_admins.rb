@@ -13,6 +13,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
+      t.string :name
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

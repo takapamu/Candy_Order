@@ -1,0 +1,23 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>CandyOrder</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if shop_signed_in? %>
+          <li><%= link_to ' 商品一覧' %></li>
+          <li><%= link_to ' 注文商品'%></li>
+          <li><%= link_to ' ログアウト' %></li>
+        <% else %>
+          <li><%= link_to ' 商品一覧', products_path ,class: "fas fa-candy-cane"%></li>
+          <li><%= link_to ' 新規登録', new_shop_registration_path, class: "fas fa-users" %></li>
+          <li><%= link_to ' ログイン', new_shop_session_path, class: "fas fa-user-plus" %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

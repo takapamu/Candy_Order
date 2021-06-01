@@ -10,9 +10,15 @@ class DeviseCreateShops < ActiveRecord::Migration[5.2]
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
+      
 
       ## Rememberable
       t.datetime :remember_created_at
+      t.string :name
+      t.string :postal_code
+      t.string :address
+      t.string :telephone_number
+      t.boolean :id_deleted, default: false, null: false
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false

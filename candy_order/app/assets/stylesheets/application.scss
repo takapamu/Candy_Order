@@ -14,7 +14,40 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+
+//topページ　写真用
+.icon{
+  width: 90%;
+  height: 600px;
+  text-align: end;
+}
+
+h1{
+  font-family: 'Amatic SC', cursive;
+  margin: 25px 0;
+}
+
+
+.fas{
+    margin-right: 20px;
+}
+
+//footer用
+h4{
+  font-family: 'Caveat', cursive;
+}
+
+.form-control {
+    display: block;
+    width: 40%;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
