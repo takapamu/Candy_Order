@@ -31,11 +31,12 @@ h1{
   margin: 25px 0;
 }
 
-
+.link{
 .fas{
     margin-right: 20px;
+    color: #ffffff;
 }
-
+}
 //footer用
 h4{
   font-family: 'Caveat', cursive;
@@ -54,33 +55,11 @@ h4{
 
 //カウントボタン
 
-.field {
-  display: flex;
-}
-
-.inputtext {
-  color:rgba(43, 32, 32, 0.76) ;
-  font-size: 18px;
-  border-left: 0;
-  border-right: 0;
-  width: 80px;
-  line-height: 3rem;
-  text-align: center;
-  border: 1px solid #D7DBDD;
-  padding: 0 10px;
-}
-
-.button {
-  color:rgba(43, 32, 32, 0.76) ;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 5px 25px;
-  background-color: white;
-  border: 1px solid #D7DBDD;
-  border-radius: 0;
-  outline: 0;
-}
-
-.resetbtn {
-  margin: 20px 0 0 65px;
+input, button {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: center;
+    margin: 0 10px;
 }

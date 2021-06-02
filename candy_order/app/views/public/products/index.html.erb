@@ -7,25 +7,22 @@
   <div class="row">
     <div class="col-8 offset-1">
       <table class="table">
-          <thead class="table-primary">
+          <thead>
             <tr>
               <th>商品</th>
               <th>価格</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="count">
           <% @products.each do |product| %>
              <tr>
-               <th><%= product.product_name %></th>
+               <th><%= link_to product.product_name,product_path(product.id)%></th>
                <th><%= product.product_price %></th>
-             </tr>
-               <div class="field">
-                  <button class="button" id="down">－</button>
-                  <input type="text" value="0" class="inputtext" id="textbox">
-                  <button class="button" id="up">＋</button>
-                </div>
-                　<button class="button resetbtn" id="reset">RESET</button>
-                <script src="main.js"></script>
+               <th><button class="minus">－</button><input type="text" name="input01" value="0" readonly class="number" width:="" style="width: 50px;"><button class="plus">＋</button>（個）</th>
+               <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
+              </tr>
           <% end %>
           </tbody>
         </table>
