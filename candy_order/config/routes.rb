@@ -18,17 +18,20 @@ Rails.application.routes.draw do
   
     root :to => "homes#top"
     get "/thanks" =>"thanks#index"
-  
+    
+    
+    scope module: :public do
     resources :shops, only: [:show, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
+    resources :carts, only: [:show]
+    post '/add_product' => 'carts#add_product' #カートに商品を追加
+    post '/update_product' => 'carts#update_product'
+    delete '/delete_product' => 'carts#delete_product'
     resources :orders, only: [:index, :show] do
       collection do #全てのデータを対象
         post :confirm
       end
     end
-    resources :carts, only: [:show]
-    post '/add_product' => 'carts#add_product' #カートに商品を追加
-    post '/update_product' => 'carts#update_product'
-    delete '/delete_product' => 'carts#delete_product'
     resources :address, only: [:index, :edit]
+    end
 end

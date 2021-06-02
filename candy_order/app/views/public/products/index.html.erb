@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7 offset-1">
+      <h2>商品一覧</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-1">
+      <table class="table">
+          <thead class="table-primary">
+            <tr>
+              <th>商品</th>
+              <th>価格</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @products.each do |product| %>
+             <tr>
+               <th><%= product.product_name %></th>
+               <th><%= product.product_price %></th>
+             </tr>
+               <div class="field">
+                  <button class="button" id="down">－</button>
+                  <input type="text" value="0" class="inputtext" id="textbox">
+                  <button class="button" id="up">＋</button>
+                </div>
+                　<button class="button resetbtn" id="reset">RESET</button>
+                <script src="main.js"></script>
+          <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+

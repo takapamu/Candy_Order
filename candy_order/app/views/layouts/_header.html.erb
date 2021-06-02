@@ -8,9 +8,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if shop_signed_in? %>
-          <li><%= link_to ' 商品一覧' %></li>
-          <li><%= link_to ' 注文商品'%></li>
-          <li><%= link_to ' ログアウト' %></li>
+          <li><%= link_to ' マイページ', shop_path(current_shop) , class: "fas fa-users-cog"%></li>
+          <li><%= link_to ' 商品一覧', products_path ,class: "fas fa-candy-cane"%></li>
+          <li><%= link_to ' 注文商品', orders_path, class: "fas fa-book-open" %></li>
+          <li><%= link_to ' ログアウト', destroy_shop_session_path, class: "far fa-user" %></li>
         <% else %>
           <li><%= link_to ' 商品一覧', products_path ,class: "fas fa-candy-cane"%></li>
           <li><%= link_to ' 新規登録', new_shop_registration_path, class: "fas fa-users" %></li>

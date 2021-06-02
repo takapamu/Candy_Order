@@ -12,32 +12,32 @@
         <%= render "shops/shared/error_messages", resource: resource %>
 
      　　<div class="col-xs-3">
-          <%= f.label :店名 %>
+          <%= f.label :name %>
           <%= f.text_field :name, class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :郵便番号 %>
+          <%= f.label :postal_code %>
           <%= f.text_field :postal_code, class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :住所 %>
+          <%= f.label :address %>
           <%= f.text_field :address,class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :電話番号 %>
+          <%= f.label :telephone_number %>
           <%= f.text_field :telephone_number, class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :メールアドレス %>
+          <%= f.label :email %>
           <%= f.email_field :email, class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :パスワード %>
+          <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 桁以上)</em>
           <% end %>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :パスワードの確認 %>
+          <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
 
