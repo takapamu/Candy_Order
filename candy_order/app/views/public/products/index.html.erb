@@ -5,6 +5,16 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-3"></div>
+    <div class="col-7 ">
+    <%= search_form_for @q do |f|  %>
+      <%= f.label :product_name_or_product_company,"Keyword" %>
+      <%= f.search_field :product_name_or_product_company_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-8 offset-1">
       <table class="table">
           <thead>
@@ -26,6 +36,11 @@
           <% end %>
           </tbody>
         </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-4">
+        <%= paginate @products, theme: 'twitter-bootstrap-4'%>
     </div>
   </div>
 </div>

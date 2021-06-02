@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+Product.create(product_name: 'ブラックサンダー',product_company: '有楽', product_introduction: 'チョコです。', product_price: '27')
+Product.create(product_name: 'キットカット',product_company: 'ネスレ日本',product_introduction: 'チョコです。',  product_price: '45')
+Product.create(product_name: 'チョコレート効果',product_company: '明治', product_introduction: 'チョコです。',  product_price: '400')
+Product.create(product_name: 'たけのこの里',product_company: '明治', product_introduction: 'チョコです。',  product_price: '180')
+Product.create(product_name: 'チョコバット',product_company: '三立',product_introduction: 'チョコです。',  product_price: '27')
+
+
+
+
+

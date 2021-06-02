@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-7 offset-1">
+      <%= render partial: 'layouts/flash' %>
       <h2>店舗編集</h2>
     </div>
   </div>
@@ -8,6 +9,7 @@
     <div class="col-2"></div>
     <div class="col-8">
       <%= form_with model:@shop,local:true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <table class="table table-borderless">
           <tbody>
             <tr>
