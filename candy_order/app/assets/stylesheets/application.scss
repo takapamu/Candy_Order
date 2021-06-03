@@ -53,31 +53,20 @@ h4{
     border-radius: 0.25rem;
 }
 
-//カウントボタン
-
-input, button {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    text-align: center;
-    margin: 0 10px;
-}
-
 /*ページネーション自体のデザイン*/
-.pagination>li>a {          
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
+.pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
 
@@ -87,4 +76,9 @@ input, button {
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 15px; /*角を丸くする*/
+}
+
+.inline-block {
+    display: inline-block;
+    margin: 0 30px;
 }

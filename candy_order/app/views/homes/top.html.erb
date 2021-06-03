@@ -18,4 +18,16 @@
      <h3>会員登録は <%= link_to "こちら", new_shop_registration_path %></h3>
     </div>
   </div>
+  <div class="row">
+    <div class="col-9 offset-2">
+      <h3> 〜新着商品〜</h3>
+      <% @products.each do |product| %>
+        <div class="inline-block">
+          <p><%= link_to product.product_name, product_path(product.id) %></p>
+          <p><%= product.product_company %></p>
+          <p><%= product.product_price %>円(税抜)</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

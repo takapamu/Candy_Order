@@ -7,11 +7,17 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-7 ">
-    <%= search_form_for @q do |f|  %>
-      <%= f.label :product_name_or_product_company,"Keyword" %>
-      <%= f.search_field :product_name_or_product_company_cont %>
-      <%= f.submit "検索" %>
-    <% end %>
+      <div class="search_warp">
+        <%= search_form_for @q do |f|  %>
+          <%= f.label :product_name_or_product_company,"Keyword" %>
+          <%= f.search_field :product_name_or_product_company_cont,placeholder: "何かお探しですか？" %>
+          <%= button_tag type: 'submit', class: 'search__button' do %>
+            <div class="icon_warp">
+              <i class="fas fa-search"></i>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -20,7 +26,7 @@
           <thead>
             <tr>
               <th>商品</th>
-              <th>価格</th>
+              <th>価格(税抜)</th>
               <th></th>
               <th></th>
             </tr>
@@ -29,8 +35,10 @@
           <% @products.each do |product| %>
              <tr>
                <th><%= link_to product.product_name,product_path(product.id)%></th>
-               <th><%= product.product_price %></th>
-               <th><button class="minus">－</button><input type="text" name="input01" value="0" readonly class="number" width:="" style="width: 50px;"><button class="plus">＋</button>（個）</th>
+               <th><%= product.product_price %>円</th>
+               <%= form_with model:@cart_item, url: add_product_path, local: true do |f| %>
+               <th><%= f.text_field :amount, style: "width: 5em;" %>個</th>
+               <% end %>
                <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
               </tr>
           <% end %>
