@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-4"></div>
-      <%= attachment_image_tag @product, :product_image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+      <%= attachment_image_tag @product, :product_image_id, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
     <div class="col-8">
       <span>商品名</span>
       <h4><%= @product.product_name %></h4>
