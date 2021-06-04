@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7 offset-1">
+      <%= render partial: 'layouts/flash' %>
+      <h2>商品編集</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <%= form_with model:@product,url:admin_product_path, local:true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <table class="table table-borderless">
+          <tbody>
+           <tr>
+        　    <td><%= f.label :商品画像 %></td>
+             <td><%= f.file_field :product_image ,class: "form-control-file" %></td>
+           </tr>
+            <tr>
+              <td><%= f.label :商品名 %></td>
+              <td><%= f.text_field :product_name, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :商品紹介 %></td>
+              <td><%= f.text_area :product_introduction, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :製造元 %></td>
+              <td><%= f.text_field :product_company, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :価格 %></td>
+              <td><%= f.number_field :product_price %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= f.submit "更新する",class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+</div>

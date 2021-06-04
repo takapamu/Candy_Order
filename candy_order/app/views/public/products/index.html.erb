@@ -37,7 +37,7 @@
                <th><%= link_to product.product_name,product_path(product.id)%></th>
                <th><%= product.product_price %>円</th>
                <%= form_with model:@cart_item, url: add_product_path, local: true do |f| %>
-               <th><%= f.text_field :amount, style: "width: 5em;" %>個</th>
+               <th><%= f.number_field :amount, style: "width: 5em;" %>個</th>
                <% end %>
                <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
               </tr>

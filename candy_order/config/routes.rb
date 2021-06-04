@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admins, skip: :all
-  devise_scope :admin do          #任意のルーティングだけ行う
-    get 'login' => 'devise/sessions#new', as: :new_admin_session
-    post 'login' => 'devise/sessions#create', as: :admin_session
-    delete 'logout' => 'devise/sessions#destroy', as: :destroy_admin_session
+  devise_scope :admin do
+    get 'admins/sign_in' => 'devise/sessions#new', as: :new_admin_session
+    post 'admins/sign_in' => 'devise/sessions#create', as: :admin_session
+    delete 'admins/sign_out' => 'devise/sessions#destroy', as: :destroy_admin_session
+    get 'admins/password/new' => 'shops/passwords#new', as: 'new_password'
   end
   devise_for :shops, skip: :all
   devise_scope :shop do
@@ -15,11 +16,11 @@ Rails.application.routes.draw do
     get 'shops/password/new' => 'shops/passwords#new', as: 'new_shop_password'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
     root :to => "homes#top"
     get "/thanks" =>"thanks#index"
-    
-    
+
+
     scope module: :public do
     resources :shops, only: [:show, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
@@ -33,5 +34,14 @@ Rails.application.routes.draw do
       end
     end
     resources :address, only: [:index, :edit]
+    end
+    
+    namespace :admin do
+    resources :shops, only: [:index,:show]
+    patch 'customers/:id' => 'customers#update'
+    resources :orders, only: [:index,:edit,:update,:show]
+    resources :genres, only: [:index,:edit,:create,]
+    patch 'genre/:id' => 'genres#update',as: 'genre'
+    resources :products, only: [:index,:show,:edit,:new,:create,:update]
     end
 end

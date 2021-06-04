@@ -12,6 +12,10 @@
           <li class="link"><%= link_to ' 商品一覧', products_path ,class: "fas fa-candy-cane"%></li>
           <li class="link"><%= link_to ' 注文商品', orders_path, class: "fas fa-book-open" %></li>
           <li class="link"><%= link_to ' ログアウト', destroy_shop_session_path, method: :delete, class: "fas fa-user" %></li>
+        <% elsif admin_signed_in? %>
+          <li class="link"><%= link_to ' 店舗一覧', admin_shops_path,class: "fas fa-store-alt" %></li>
+          <li class="link"><%= link_to ' 商品一覧', admin_products_path ,class: "fas fa-candy-cane"%></li>
+          <li class="link"><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class: "fas fa-user" %></li>
         <% else %>
           <li class="link"><%= link_to ' 商品一覧', products_path ,class: "fas fa-candy-cane"%></li>
           <li class="link"><%= link_to ' 新規登録', new_shop_registration_path, class: "fas fa-users" %></li>
