@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7 offset-1">
+      <%= render partial: 'layouts/flash' %>
+      <h2>店舗詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5 offset-3">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th>店舗名</th>
+            <th><%= @shop.name %></th>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <th><%= @shop.postal_code %></th>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <th><%= @shop.address %></th>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <th><%= @shop.telephone_number %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th><%= @shop.email %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

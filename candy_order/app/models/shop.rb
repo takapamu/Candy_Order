@@ -4,6 +4,9 @@ class Shop < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+         has_many :orders
+         has_many :cart_products
+         
     validates :name, presence: true
     validates :postal_code, presence: true
     validates :address, presence: true

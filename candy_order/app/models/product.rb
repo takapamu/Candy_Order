@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  belongs_to :order_product
-  belongs_to :cart
+  has_many :order_products
+  has_many :carts
 
   attachment :image
 end
