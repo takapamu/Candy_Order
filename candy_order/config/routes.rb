@@ -29,13 +29,13 @@ Rails.application.routes.draw do
     post '/update_product' => 'carts#update_product'
     delete '/delete_product' => 'carts#delete_product'
     resources :orders, only: [:index, :show] do
-      collection do 
+      collection do
         post :confirm
       end
     end
     resources :address, only: [:index, :edit]
     end
-    
+
     namespace :admin do
       resources :shops, only: [:index,:show]
       patch 'customers/:id' => 'customers#update'

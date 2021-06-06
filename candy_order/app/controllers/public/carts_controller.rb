@@ -1,3 +1,42 @@
 class Public::CartsController < ApplicationController
+  before_action :setup_cart_product!, only:  %i[add_product update_product delete_product ]
+
+  def show
+    @cart_products = current_cart.cart_products.includes([:product]) #includesはN+1問題
+  end
+
+  def add_product
+    @cart_product ||= current_cart.cart_products.build(product_id: params[:product_id])
+    @cart_product.quantity = params[:quantity].to_i
+    if @cart_product.save
+        redirect_to cart_path(current_cart)
+    else
+        redirect_to product_url(params[:product_id])
+    end
+  end
   
+  def update_product
+    if @cart_product.update(quantity: params[:quantity].to_i)
+      flash[:success] = "更新しました"
+    else
+      flash[:danger] = "更新に失敗しました"
+    end
+     redirect_to cart_path(current_cart)
+  end
+  
+  def delete_product
+   if @cart_product.destroy
+      flash[:danger] = "削除しました"
+   else
+      flash[:alert] = "削除に失敗しました"
+   end
+      redirect_to cart_path(current_cart)
+  end
+    
+
+  private
+
+  def setup_cart_product!
+    @cart_product = current_cart.cart_products.find_by(product_id: params[:product_id])
+  end
 end

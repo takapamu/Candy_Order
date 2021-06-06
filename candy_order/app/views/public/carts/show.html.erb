@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-7 offset-1">
+    <%= render partial: 'layouts/flash' %>
       <h2>発注商品</h2>
     </div>
   </div>
@@ -9,24 +10,33 @@
       <table class="table">
         <thead class="thead-light">
           <tr>
-            <th></th>
             <th>商品名</th>
             <th>数量</th>
-            <th>価格</th>
+            <th></th>
+            <th>価格(税込み)</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @cart_products.each do |cart_product| %>
              <tr>
-               <th><%= cart_product.product.name %></th>
-               <th><%= cart_product.product_price %>円</th>
-            <%= form_with model:@cart_item, url: add_product_path, local: true do |f| %>
-               <th><%= cart_product.quantity %>個</th>
+               <th><%= cart_product.product.product_name %></th>
+            <%= form_with(url: update_product_path, method: :post, local: true) do |f| %>
+               <%= f.hidden_field :product_id, value: cart_product.product.id %>
+               <th><%= f.number_field :quantity, value: cart_product.quantity, min: "0"  %>個</th>
+               <th><%= f.submit "更新する" %></th>
             <% end %>
+               <th><%= tax_subtotal(cart_product.product.product_price, cart_product.quantity) %>円</th>
+               <th><%= link_to "削除する", delete_product_path(product_id: cart_product.product.id),method: :delete, data: {confirm: "削除しますか？"} %></th>
               </tr>
           <% end %>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 offset-6">
+      <h3>合計金額　<%= tax_total_price(@cart_products) %>円</h3>
     </div>
   </div>
 </div>
