@@ -5,8 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-4"></div>
-    <div class="col-8">
+    <div class="col-3 offset-2">
+      <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+    </div>
+    <div class="col-6 offset-1">
       <span>商品名</span>
       <h4><%= @product.product_name %></h4>
       <span>商品説明</span>

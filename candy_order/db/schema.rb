@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_015409) do
+ActiveRecord::Schema.define(version: 2021_06_06_043747) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,10 +25,21 @@ ActiveRecord::Schema.define(version: 2021_06_03_015409) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.integer "amount"
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "cart_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_carts_on_shop_id"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -41,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_015409) do
   create_table "products", force: :cascade do |t|
     t.string "product_company"
     t.string "product_name"
-    t.string "product_image_id"
+    t.string "image_id"
     t.integer "product_price"
     t.text "product_introduction"
     t.boolean "is_active", default: true, null: false

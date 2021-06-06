@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     post '/update_product' => 'carts#update_product'
     delete '/delete_product' => 'carts#delete_product'
     resources :orders, only: [:index, :show] do
-      collection do #全てのデータを対象
+      collection do 
         post :confirm
       end
     end
@@ -37,11 +37,11 @@ Rails.application.routes.draw do
     end
     
     namespace :admin do
-    resources :shops, only: [:index,:show]
-    patch 'customers/:id' => 'customers#update'
-    resources :orders, only: [:index,:edit,:update,:show]
-    resources :genres, only: [:index,:edit,:create,]
-    patch 'genre/:id' => 'genres#update',as: 'genre'
-    resources :products, only: [:index,:show,:edit,:new,:create,:update]
+      resources :shops, only: [:index,:show]
+      patch 'customers/:id' => 'customers#update'
+      resources :orders, only: [:index,:edit,:update,:show]
+      resources :genres, only: [:index,:edit,:create,]
+      patch 'genre/:id' => 'genres#update',as: 'genre'
+      resources :products, only: [:index,:show,:edit,:new,:create,:update]
     end
 end

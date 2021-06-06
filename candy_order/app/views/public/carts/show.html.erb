@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7 offset-1">
+      <h2>発注商品</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-1">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>数量</th>
+            <th>価格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_products.each do |cart_product| %>
+             <tr>
+               <th><%= cart_product.product.name %></th>
+               <th><%= cart_product.product_price %>円</th>
+            <%= form_with model:@cart_item, url: add_product_path, local: true do |f| %>
+               <th><%= cart_product.quantity %>個</th>
+            <% end %>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -36,8 +36,11 @@
              <tr>
                <th><%= link_to product.product_name,product_path(product.id)%></th>
                <th><%= product.product_price %>円</th>
-               <%= form_with model:@cart_item, url: add_product_path, local: true do |f| %>
-               <th><%= f.number_field :amount, style: "width: 5em;" %>個</th>
+               <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
+               <th><%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</th>
+               <th><%= f.button :type => "submit" do %>
+                      <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
+                    <% end %></th>
                <% end %>
                <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
               </tr>
