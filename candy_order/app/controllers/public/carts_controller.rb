@@ -9,8 +9,10 @@ class Public::CartsController < ApplicationController
     @cart_product ||= current_cart.cart_products.build(product_id: params[:product_id])
     @cart_product.quantity = params[:quantity].to_i
     if @cart_product.save
+        flash[:success] = "追加しました"
         redirect_to cart_path(current_cart)
     else
+        flash[:danger] = "追加に失敗しました"
         redirect_to product_url(params[:product_id])
     end
   end

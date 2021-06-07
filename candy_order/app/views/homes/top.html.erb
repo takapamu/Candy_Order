@@ -23,6 +23,7 @@
       <h3> 〜新着商品〜</h3>
       <% @products.each do |product| %>
         <div class="inline-block">
+          <%= attachment_image_tag product, :image, :fill, 200, 200, format:'jpeg', fallback:'no_image.jpg' %>
           <p><%= link_to product.product_name, product_path(product.id) %></p>
           <p><%= product.product_company %></p>
           <p><%= product.product_price %>円(税抜)</p>

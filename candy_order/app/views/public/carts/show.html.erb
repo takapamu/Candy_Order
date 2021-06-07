@@ -39,4 +39,9 @@
       <h3>合計金額　<%= tax_total_price(@cart_products) %>円</h3>
     </div>
   </div>
+  <div class="row">
+    <div class="col-5">
+      <%= link_to "注文画面へ行く", product_order_confirm_path(current_cart) %>
+    </div>
+  </div>
 </div>
