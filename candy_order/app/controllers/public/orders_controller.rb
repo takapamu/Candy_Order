@@ -1,11 +1,13 @@
 class Public::OrdersController < ApplicationController
 
   def show
+    @order = Order.new(order_params)
+    @shop = current_shop
   end
 
   def confirm
-    @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
+    @shop = current_shop
   end
 
 private

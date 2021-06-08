@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'orders/show'
-  get 'orders/confirm'
+
   devise_for :admins, skip: :all
   devise_scope :admin do
     get 'admins/sign_in' => 'devise/sessions#new', as: :new_admin_session
@@ -25,23 +24,24 @@ Rails.application.routes.draw do
 
     scope module: :public do
     resources :shops, only: [:show, :edit, :update, :destroy]
-    resources :products, only: [:index, :show] do #product_idの所得をする
-      get 'order' => 'orders#show' 
-      get 'order/confirm' => 'orders#confirm'
-      post 'order' => 'orders#create'
-    end
+    resources :products, only: [:index, :show] 
+
     resources :carts, only: [:show]
     post '/add_product' => 'carts#add_product' #カートに商品を追加
     post '/update_product' => 'carts#update_product'
     delete '/delete_product' => 'carts#delete_product'
-    resources :address, only: [:index, :edit]
+    resources :orders, only: [:create,:index,:new,:show] do
+     collection do
+       post 'confirm'
+     end
     end
+  end
 
     namespace :admin do
       resources :shops, only: [:index,:show]
       patch 'customers/:id' => 'customers#update'
       resources :orders, only: [:index,:edit,:update,:show]
-      resources :genres, only: [:index,:edit,:create,]
+      resources :genres, only: [:index,:edit,:create]
       patch 'genre/:id' => 'genres#update',as: 'genre'
       resources :products, only: [:index,:show,:edit,:new,:create,:update]
     end

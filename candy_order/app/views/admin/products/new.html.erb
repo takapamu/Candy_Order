@@ -26,6 +26,10 @@
              <td><%= f.text_field :product_company ,class: "form-control" %></td>
            </tr>
            <tr>
+             <td><%= f.label :ジャンル %></td>
+             <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "Select"}, {class: 'btn btn-outline-dark'} %></td>
+           </tr>
+           <tr>
              <td><%= f.label :金額 %></td>
              <td><%= f.number_field :product_price, min: "1"  %></td>
            </tr>

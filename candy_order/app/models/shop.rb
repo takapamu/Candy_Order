@@ -6,6 +6,7 @@ class Shop < ApplicationRecord
          
    has_many :products
    has_one :cart, dependent: :destroy 
+   has_many :orders, dependent: :destroy
          
     validates :name, presence: true
     validates :postal_code, presence: true
