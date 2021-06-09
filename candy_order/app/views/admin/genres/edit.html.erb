@@ -1,16 +1,27 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <h2>ジャンル編集</h2>
+  <ul>
+  　<div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <%= form_with model:@genre, url:admin_genre_path, local:true do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.submit "更新する" %>
-      <% end %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>ジャンル編集</h2>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-8 offset-2">
+        <%= form_for(@genre, url: admin_genre_path(@genre)) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name,class:"col-xs-12" %>
+            <%= f.submit 'Submit', class: "btn btn-dark btn-sm" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </ul>
 </div>

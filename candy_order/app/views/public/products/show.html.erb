@@ -1,32 +1,42 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <h2>商品詳細</h2>
+  <ul>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>商品詳細</h2>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3 offset-2">
-      <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+    <div class="row">
+      <div class="col-3 offset-2">
+        <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+      </div>
+      <div class="col-6 offset-1">
+        <span>商品名</span>
+        <h4><%= @product.product_name %></h4>
+        <span>商品説明</span>
+        <h4><%= @product.product_introduction %></h4>
+        <span>制作会社</span>
+        <h4><%= @product.product_company %></h4>
+        <span>ジャンル</span>
+        <h4><%= @product.genre.name %></h4>
+        <span>価格(税抜)</span>
+        <h4><%= @product.product_price %>(円)</h4>
+         <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
+            <%= f.hidden_field :product_id, value:@product.id %>
+            <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個
+            <%= f.button :type => "submit" do %>
+                <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
+              <% end %>
+         <% end %>
+         <% if current_shop.already_favorited?(@product)%>
+           <%= link_to product_favorites_path(@product),method: :delete do %>
+           <i class="fas fa-heart fa-3x size"></i>
+           <% end %>
+         <% else %>
+            <%= link_to product_favorites_path(@product),method: :post do %>
+            <i class="far fa-heart fa-3x size"></i>
+            <% end %>
+         <% end %>
+      </div>
     </div>
-    <div class="col-6 offset-1">
-      <span>商品名</span>
-      <h4><%= @product.product_name %></h4>
-      <span>商品説明</span>
-      <h4><%= @product.product_introduction %></h4>
-      <span>制作会社</span>
-      <h4><%= @product.product_company %></h4>
-      <span>ジャンル</span>
-      <h4><%= @product.genre.name %></h4>
-      <span>価格(税抜)</span>
-      <h4><%= @product.product_price %>(円)</h4>
-       <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
-          <%= f.hidden_field :product_id, value:@product.id %>
-       <th><%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</th>
-       <th><%= f.button :type => "submit" do %>
-              <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
-            <% end %></th>
-       <% end %>
-    <%= link_to "商品一覧に戻る", products_path, class: "btn btn-info btn-sm" %>
-    </div>
-  </div>
+  </ul>
 </div>

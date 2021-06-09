@@ -1,25 +1,25 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <%= render partial: 'layouts/flash' %>
-      <h2>店舗一覧</h2>
+  <ul>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>店舗一覧</h2>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8 offset-2">
-      <ul class="list-group">
-        <% @shops.each do |shop| %>
-          <%= link_to(admin_shop_path(shop), class: "list-group-item list-group-item-action") do %>
-            <%= shop.name %>
+    <div class="row">
+      <div class="col-8 offset-2">
+        <ul class="list-group">
+          <% @shops.each do |shop| %>
+            <%= link_to(admin_shop_path(shop), class: "list-group-item list-group-item-action") do %>
+              <%= shop.name %>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-8 offset-4">
-        <%= paginate @shops, theme: 'twitter-bootstrap-4'%>
+    <div class="row">
+      <div class="col-8 offset-4">
+          <%= paginate @shops, theme: 'twitter-bootstrap-4'%>
+      </div>
     </div>
-  </div>
+  </ul>
 </div>

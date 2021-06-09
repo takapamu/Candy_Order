@@ -23,8 +23,13 @@ Rails.application.routes.draw do
 
 
     scope module: :public do
-    resources :shops, only: [:show, :edit, :update, :destroy]
+    resources :shops, only: [:show, :edit, :update, :destroy] do
+      collection do
+            get :favorites
+          end
+      end
     resources :products, only: [:index, :show] do
+       resource :favorites, only: [:create, :destroy]
       collection do
         match 'search' => 'products#search', via:[:get,:post]
       end

@@ -1,4 +1,8 @@
 module ApplicationHelper
+  
+  def tax_price(price)
+    (price * 1.1).round
+  end
 
   def tax_subtotal(price,quantity)
     (price * quantity * 1.1 ).round

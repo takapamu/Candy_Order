@@ -4,6 +4,9 @@ class Public::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @products = @shop.products
+    favorites = Favorite.where(shop_id: current_shop.id).pluck(:product_id)
+    @favorite_list = Product.find(favorites)
   end
 
   def edit
@@ -22,7 +25,7 @@ class Public::ShopsController < ApplicationController
 
   def destroy
   end
-
+  
   private
 
   def  shop_params

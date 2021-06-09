@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_055417) do
+ActiveRecord::Schema.define(version: 2021_06_09_095738) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2021_06_08_055417) do
     t.index ["shop_id"], name: "index_carts_on_shop_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_favorites_on_product_id"
+    t.index ["shop_id"], name: "index_favorites_on_shop_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_055417) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.integer "shop_id"
     t.integer "genre_id"
     t.string "product_company"
     t.string "product_name"

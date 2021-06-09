@@ -1,11 +1,12 @@
 <div class="container">
+  <ul>
   <div class="row">
     <div class="col-7 offset-1">
       <h2>商品一覧</h2>
     </div>
   </div>
   <div class="row">
-    <div class="col-3"></div>
+    <div class="col-4"></div>
     <div class="col-7 ">
       <div class="search_warp">
         <%= search_form_for @q do |f|  %>
@@ -21,16 +22,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-8 offset-1">
+    <div class="col-3"></div>
+    <div class="col-5 offset-4">
       <%= form_with model:@search, url: search_products_path,method: :post, local:true do |f| %>
       <%= f.select(:sorts, {'並び替え': 'id desc','価格順': 'product_price asc','新着順': 'update desc'},{ onchange: 'this.form.submit()'}) %>
       <%= f.submit "完了" %>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-9 offset-1">
+      <ul>
       <table class="table">
           <thead>
             <tr>
               <th>商品</th>
-              <th>価格(税抜)</th>
+              <th>価格(税込)</th>
+              <th>個数</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -38,14 +47,14 @@
             <% @products.each do |product| %>
               <tr>
                 <th><%= link_to product.product_name,product_path(product.id) %></th>
-                <th><%= product.product_price %>円</th>
-                <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
-                 <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
-                   <%= f.hidden_field :product_id, value:product.id %>
-                   <th><%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</th>
-                   <th><%= f.button :type => "submit" do %>
-                        <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
-                   <% end %></th>
+                <th><%= tax_price(product.product_price) %>円</th>
+                <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
+                  <%= f.hidden_field :product_id, value:product.id %>
+                  <th><%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</th>
+                  <th><%= f.button :type => "submit" do %>
+                    <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
+                  <% end %></th>
+                 <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
                 <% end %>
               </tr>
             <% end %>
@@ -58,6 +67,7 @@
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
     </div>
   </div>
+  </ul>
 </div>
 
 

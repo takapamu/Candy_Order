@@ -1,26 +1,34 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <h2>商品詳細</h2>
+  <ul>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3 offset-2">
-      <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>商品詳細</h2>
+      </div>
     </div>
-    <div class="col-6 offset-1">
-      <span>商品名</span>
-      <h4><%= @product.product_name %></h4>
-      <span>商品説明</span>
-      <h4><%= @product.product_introduction %></h4>
-      <span>制作会社</span>
-      <h4><%= @product.product_company %></h4>
-      <span>ジャンル</span>
-      <h4><%= @product.genre.name %></h4>
-      <span>価格(税抜)</span>
-      <h4><%= @product.product_price %>(円)</h4>
-    <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-info btn-sm" %>
-    <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success btn-sm" %>
+    <div class="row">
+      <div class="col-3 offset-2">
+        <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+      </div>
+      <div class="col-6 offset-1">
+        <span>商品名</span>
+        <h4><%= @product.product_name %></h4>
+        <span>商品説明</span>
+        <h4><%= @product.product_introduction %></h4>
+        <span>制作会社</span>
+        <h4><%= @product.product_company %></h4>
+        <span>ジャンル</span>
+        <h4><%= @product.genre.name %></h4>
+        <span>価格(税抜)</span>
+        <h4><%= @product.product_price %>(円)</h4>
+      <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-info btn-sm" %>
+      <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success btn-sm" %>
+      </div>
     </div>
-  </div>
+  </ul>
 </div>

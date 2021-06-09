@@ -1,39 +1,53 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <%= render partial: 'layouts/flash' %>
-      <h2>この内容で発注しますか？</h2>
+  <ul>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>価格(税抜)</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="count">
-          <% @cart_products.each do |cart_product| %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>この内容で発注しますか？</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-2"> 
+        <table class="table">
+          <thead>
             <tr>
-              <th><%= cart_product.product.product_name %></th>
-              <th><%= cart_product.product.product_price %>円</th>
-              <%= form_with(url: update_product_path, method: :post, local: true) do |f| %>
-                 <%= f.hidden_field :product_id, value: cart_product.product.id %>
-                 <th><%= f.number_field :quantity, value: cart_product.quantity, min: "0"  %>個</th>
-                 <th><%= f.submit "更新する" %></th>
-              <% end %>
+              <th>商品</th>
+              <th>個数</th>
+              <th >価格(税込み)</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <h3>合計金額　<%= tax_total_price(@cart_products) %>円</h3>
-      <%= form_with model:@order, local:true do |f| %>
-      <%= f.submit %>
-      <% end %>
+          </thead>
+          <tbody id="count">
+            <% @cart_products.each do |cart_product| %>
+              <tr>
+                <th><%= cart_product.product.product_name %></th>
+                <%= form_with(url: update_product_path, method: :post, local: true) do |f| %>
+                   <%= f.hidden_field :product_id, value: cart_product.product.id %>
+                   <th><%= f.number_field :quantity, value: cart_product.quantity, min: "0", style: "width: 20%;"  %>個
+                   <%= f.submit "更新する", class: "btn btn-outline-success btn-sm" %></th>
+                <% end %>
+                <th><%= tax_subtotal(cart_product.product.product_price, cart_product.quantity) %>円</th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-5 offset-7">
+        <h3>合計金額　<%= tax_total_price(@cart_products) %>円</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 offset-5">
+        <%= form_with model:@order, local:true do |f| %>
+        <%= f.submit "注文する",class: "btn btn-outline-dark" %>
+        <% end %>
+      </div>
+    </div>
+  </ul>
 </div>

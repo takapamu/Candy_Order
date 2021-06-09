@@ -1,39 +1,49 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <h2>ジャンル一覧</h2>
+  <ul>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <%= form_with model:@genre, url: admin_genres_path, local:true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-          <label for='inputName title'>Genre_name</label><br>
-          <%= f.text_field :name, autofocus: true, id:'inputName' %>
-          <%= f.submit 'Submit' %>
-      <% end %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>ジャンル一覧</h2>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th></th>
-            <th>ジャンル名</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @genres.each do |genre| %>
-          <tr>
-            <th></th>
-            <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre)%></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-4 offset-2">
+        <div class='newitem'>
+        <%= form_with model:@genre, url: admin_genres_path, local:true do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+            <div class="form-group">
+              <label for='inputName title'>Genre_name</label><br>
+              <%= f.text_field :name, autofocus: true, id:'inputName' %>
+              <%= f.submit '登録する', class:'btn  btn-outline-dark' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-5">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>ジャンル名</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @genres.each do |genre| %>
+            <tr>
+              <th></th>
+              <td><%= genre.name %></td>
+              <td><%= link_to "編集する", edit_admin_genre_path(genre)%></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
+  </ul>
 </div>

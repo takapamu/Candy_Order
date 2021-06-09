@@ -10,25 +10,17 @@
       </div>
   </div>
   <div class="row">
-    <div class="col-9 offset-2">
-      <h3>このサイトではお菓子の発注をすることが出来ます。</br>
-        会員登録をしなくても商品一覧を見る事は出来ますが、</br>
-        発注する際には会員登録が必要です。
-      </h3>
-     <h3>会員登録は <%= link_to "こちら", new_shop_registration_path %></h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-9 offset-2">
-      <h3> 〜新着商品〜</h3>
+    <div class="col-10 offset-1">
+      <h3>最近入荷した商品達</h3>
+      <ul>
       <% @products.each do |product| %>
         <div class="inline-block">
-          <%= attachment_image_tag product, :image, :fill, 200, 200, format:'jpeg', fallback:'no_image.jpg' %>
-          <p><%= link_to product.product_name, product_path(product.id) %></p>
-          <p><%= product.product_company %></p>
-          <p><%= product.product_price %>円(税抜)</p>
+          <%= attachment_image_tag product, :image, :fill, 100, 100, format:'jpeg', fallback:'no_image.jpg' %>
+          <li class="link"><%= link_to product.product_name, product_path(product.id), class: "text" %></li>
+          <p><%= tax_price(product.product_price) %>円(税込)</p>
         </div>
       <% end %>
+      </ul>
     </div>
   </div>
 </div>

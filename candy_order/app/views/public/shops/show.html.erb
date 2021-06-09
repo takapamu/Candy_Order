@@ -1,37 +1,64 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <%= render partial: 'layouts/flash' %>
-      <h2>店舗詳細</h2>
+  <ul>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-5 offset-3">
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th>店舗名</th>
-            <th><%= @shop.name %></th>
-          </tr>
-          <tr>
-            <th>郵便番号</th>
-            <th><%= @shop.postal_code %></th>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <th><%= @shop.address %></th>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <th><%= @shop.telephone_number %></th>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <th><%= @shop.email %></th>
-          </tr>
-        </tbody>
-      </table>
-      <%= link_to "編集する", edit_shop_path, class: "btn btn-outline-success" %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>店舗詳細</h2>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-5 offset-3">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th>店舗名</th>
+              <th><%= @shop.name %></th>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <th><%= @shop.postal_code %></th>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <th><%= @shop.address %></th>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <th><%= @shop.telephone_number %></th>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <th><%= @shop.email %></th>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "編集する", edit_shop_path, class: "btn btn-outline-success" %>
+        <%= link_to "注文履歴一覧", orders_path, class: "btn btn-outline-success"  %>
+     <% if @favorite_list.present? %>
+      <h4>お気に入り一覧</h4>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>価格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @favorite_list.each do |product| %>
+            <tr>
+              <td><li class="link"><%= link_to product.product_name,product_path(product.id), class: "text" %></li></td>
+              <td><%= product.product_price%>円</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      </div>
+    </div>
+  </ul>
 </div>

@@ -1,41 +1,48 @@
 <div class="container">
-  <div class="row">
-    <div class="col-7 offset-1">
-      <%= render partial: 'layouts/flash' %>
-      <h2>店舗編集</h2>
+  <ul>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <%= form_with model:@shop,local:true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <td>店舗名</td>
-              <td><%= f.text_field :name, class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td>郵便番号</td>
-              <td><%= f.text_field :postal_code, class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td>住所</td>
-              <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td>電話番号</td>
-              <td><%= f.text_field :telephone_number, class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td>メールアドレス</td>
-              <td><%= f.email_field :email, class: "form-control" %></td>
-            </tr>
-          </tbody>
-        </table>
-        <%= f.submit "更新する",class: "btn btn-info" %>
-      <% end %>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>店舗編集</h2>
+      </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <%= form_with model:@shop,local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>店舗名</td>
+                <td><%= f.text_field :name, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td><%= f.text_field :postal_code, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>住所</td>
+                <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><%= f.text_field :telephone_number, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= f.email_field :email, class: "form-control" %></td>
+              </tr>
+            </tbody>
+          </table>
+          <%= f.submit "更新する",class: "btn btn-info" %>
+        <% end %>
+      </div>
+    </div>
+  </ul>
 </div>
