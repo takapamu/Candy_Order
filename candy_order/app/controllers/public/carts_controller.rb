@@ -23,7 +23,7 @@ class Public::CartsController < ApplicationController
     else
       flash[:danger] = "更新に失敗しました"
     end
-     redirect_to cart_path(current_cart)
+      redirect_to request.referer
   end
   
   def delete_product

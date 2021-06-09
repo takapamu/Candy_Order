@@ -24,7 +24,11 @@ Rails.application.routes.draw do
 
     scope module: :public do
     resources :shops, only: [:show, :edit, :update, :destroy]
-    resources :products, only: [:index, :show] 
+    resources :products, only: [:index, :show] do
+      collection do
+        match 'search' => 'products#search', via:[:get,:post]
+      end
+    end
 
     resources :carts, only: [:show]
     post '/add_product' => 'carts#add_product' #カートに商品を追加
@@ -33,6 +37,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:create,:index,:new,:show] do
      collection do
        post 'confirm'
+       get  'confirm'
      end
     end
   end

@@ -22,6 +22,10 @@
   </div>
   <div class="row">
     <div class="col-8 offset-1">
+      <%= form_with model:@search, url: search_products_path,method: :post, local:true do |f| %>
+      <%= f.select(:sorts, {'並び替え': 'id desc','価格順': 'product_price asc','新着順': 'update desc'},{ onchange: 'this.form.submit()'}) %>
+      <%= f.submit "完了" %>
+      <% end %>
       <table class="table">
           <thead>
             <tr>

@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
       t.integer :quantity
       t.integer :amount
-      t.references :product, foreign_key: true
+      t.references :shop, foreign_key: true
 
       t.timestamps
     end
