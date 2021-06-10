@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
     root :to => "homes#top"
     get "/thanks" =>"thanks#index"
+    root  'inquiry#index'
+    get   'inquiry'         => 'inquiry#index'
+    post  'inquiry/confirm' => 'inquiry#confirm'
+    post  'inquiry/thanks'  => 'inquiry#thanks' 
 
 
     scope module: :public do
