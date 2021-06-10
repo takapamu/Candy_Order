@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
         @q = Product.ransack(params[:q]) #ransrakの検索メソッド
         @products = @q.result(distinct: true).page(params[:page]).per(10)
       end
-     
+
      def current_cart
        if current_shop
          current_cart = current_shop.cart || current_shop.create_cart!
@@ -42,5 +42,5 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :postal_code, :address, :telephone_number, :id_deleted])
     end
-    
+
 end

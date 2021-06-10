@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   devise_for :admins, skip: :all
   devise_scope :admin do
     get 'admins/sign_in' => 'devise/sessions#new', as: :new_admin_session
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
         match 'search' => 'products#search', via:[:get,:post]
       end
     end
+    
+    get '/search' => 'search#search'
 
     resources :carts, only: [:show]
     post '/add_product' => 'carts#add_product' #カートに商品を追加
