@@ -1,6 +1,6 @@
 <header class="visible">
   <nav class="navbar">
-    <div class="container hoge">
+    <div class="container">
        <ul class="nav">
         <li><a href="/">HOME</a></li>
         <% if shop_signed_in? %>
@@ -8,6 +8,11 @@
           <li><%= link_to ' 商品一覧', products_path %></li>
           <li><%= link_to ' 注文商品', cart_path(current_shop) %></li>
           <li><%= link_to ' ログアウト', destroy_shop_session_path, method: :delete %></li>
+          <%= search_form_for @q  do |f|  %>
+             <span><%= f.label :product_name_or_product_company,"Keyword" %>
+              <%= f.search_field :product_name_or_product_company_cont,placeholder: "キーワード検索" %>
+              <%= f.submit "検索",class: "sbtn" %></span>
+          <% end %>
         <% elsif admin_signed_in? %>
           <li><%= link_to ' 店舗一覧', admin_shops_path %></li>
           <li><%= link_to ' 商品一覧', admin_products_path %></li>

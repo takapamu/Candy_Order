@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
-//= require jquery
 //= require cocoon
 //= require_tree .
 //= require bootstrap-sprockets
@@ -28,4 +29,15 @@ $(window).bind('scroll', function () {
       $('header').removeClass('visible');
   }
   this.previousTop = currentTop;
+});
+
+
+
+
+$(function() {
+  $('.a').slick({
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 });

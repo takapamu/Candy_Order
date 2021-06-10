@@ -9,17 +9,6 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   
-  def search
-    if params[:q].present?
-      @search = Product.ransack(search_params)
-      @products = @search.result
-    else 
-      params[:q] = { sorts: 'id desc' }
-      @search = Product.ransack()
-      @products = Product.all
-    end
-  end
-  
   private
   
   def search_params
