@@ -24,10 +24,16 @@ Rails.application.routes.draw do
     root  'inquiry#index'
     get   'inquiry'         => 'inquiry#index'
     post  'inquiry/confirm' => 'inquiry#confirm'
-    post  'inquiry/thanks'  => 'inquiry#thanks' 
+    post  'inquiry/thanks'  => 'inquiry#thanks'
+    
 
 
     scope module: :public do
+    resources :notifications, only: :index do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :shops, only: [:show, :edit, :update, :destroy] do
       collection do
             get :favorites

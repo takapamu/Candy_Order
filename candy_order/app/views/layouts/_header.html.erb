@@ -4,6 +4,12 @@
        <ul class="nav">
         <li><a href="/">HOME</a></li>
         <% if shop_signed_in? %>
+          <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle" style="color: gold;"></i>
+          <% end %>
+          <li>
+              <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+          </li>
           <li><%= link_to ' マイページ', shop_path(current_shop)%></li>
           <li><%= link_to ' 商品一覧', products_path %></li>
           <li><%= link_to ' 注文商品', cart_path(current_shop) %></li>

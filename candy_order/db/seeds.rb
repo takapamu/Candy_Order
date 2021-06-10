@@ -16,7 +16,7 @@
 
 Admin.create!(
    name: 'testtest',
-   email: 'test@test.com',
+   email: 'test1@test.com',
    password: 'testtest'
 )
 

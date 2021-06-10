@@ -17,28 +17,28 @@
     <div class="row">
       <div class="col-8 offset-2">
         <table class="table">
-            <thead>
-              <tr>
-                <th>商品</th>
-                <th>価格(税抜)</th>
-                <th></th>
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>価格(税抜)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="count">
+          <% @products.each do |product| %>
+             <tr>
+               <th><%= link_to product.product_name,admin_product_path(product.id)%></th>
+               <th><%= product.product_price %>円</th>
+               <th><%= link_to "詳細ページ",admin_product_path(product.id),class: "btn btn-info btn-sm" %></th>
               </tr>
-            </thead>
-            <tbody id="count">
-            <% @products.each do |product| %>
-               <tr>
-                 <th><%= link_to product.product_name,admin_product_path(product.id)%></th>
-                 <th><%= product.product_price %>円</th>
-                 <th><%= link_to "詳細ページ",admin_product_path(product.id),class: "btn btn-info btn-sm" %></th>
-                </tr>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
+          <% end %>
+          </tbody>
+        </table>
       </div>
-      <div class="row">
-        <div class="col-8 offset-4">
-          <%= paginate @products, theme: 'twitter-bootstrap-4'%>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-4">
+        <%= paginate @products, theme: 'twitter-bootstrap-4'%>
       </div>
     </div>
   </ul>

@@ -16,4 +16,8 @@ module ApplicationHelper
     array.sum.round
   end
   
+  def unchecked_notifications
+    @notifications = current_shop.passive_notifications.where(checked: false)
+  end
+  
 end

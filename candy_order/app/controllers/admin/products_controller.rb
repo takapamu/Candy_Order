@@ -19,6 +19,7 @@ class Admin::ProductsController < ApplicationController
     def create
       @product = Product.new(product_params)
       if @product.save!
+        @product.create_notification
         redirect_to admin_products_path, success: "作成しました"
       else
         flash.now[:danger] = '作成に失敗しました。'

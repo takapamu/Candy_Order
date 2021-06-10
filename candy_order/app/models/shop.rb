@@ -4,10 +4,10 @@ class Shop < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   has_many :products
    has_one :cart, dependent: :destroy
    has_many :orders, dependent: :destroy
    has_many :favorites, dependent: :destroy
+   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
     validates :name, presence: true
     validates :postal_code, presence: true
