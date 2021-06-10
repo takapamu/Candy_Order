@@ -11,11 +11,9 @@
         <% if @inquiry.errors.any? %>
           <div class="alert alert-danger" role="alert">
             <strong>入力内容にエラーがあります</strong>
-            <ul>
               <% @inquiry.errors.each do |attr, msg| %>
                 <li><%= msg %></li>
               <% end %>
-            </ul>
           </div>
         <% end %>
         

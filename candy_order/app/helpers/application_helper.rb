@@ -16,5 +16,4 @@ module ApplicationHelper
     array.sum.round
   end
   
-
 end

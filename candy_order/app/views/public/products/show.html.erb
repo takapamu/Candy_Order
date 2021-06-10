@@ -1,42 +1,43 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-7 offset-1">
-        <h2>商品詳細</h2>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-3 offset-2">
-        <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
+        <%= attachment_image_tag @product, :image, :fill, 300, 300, format:'jpeg', fallback:'no_image.jpg' %>
       </div>
       <div class="col-6 offset-1">
-        <span>商品名</span>
-        <h4><%= @product.product_name %></h4>
-        <span>商品説明</span>
-        <h4><%= @product.product_introduction %></h4>
-        <span>制作会社</span>
-        <h4><%= @product.product_company %></h4>
-        <span>ジャンル</span>
-        <h4><%= @product.genre.name %></h4>
-        <span>価格(税抜)</span>
-        <h4><%= @product.product_price %>(円)</h4>
-         <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
-            <%= f.hidden_field :product_id, value:@product.id %>
-            <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個
-            <%= f.button :type => "submit" do %>
-                <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
-              <% end %>
-         <% end %>
-         <% if current_shop.already_favorited?(@product)%>
-           <%= link_to product_favorites_path(@product),method: :delete do %>
-           <i class="fas fa-heart fa-3x size"></i>
-           <% end %>
-         <% else %>
-            <%= link_to product_favorites_path(@product),method: :post do %>
-            <i class="far fa-heart fa-3x size"></i>
-            <% end %>
-         <% end %>
-         <%= link_to "お問い合わせ",inquiry_path %> 
+         <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td style="font-size: x-large;"><span><%= @product.product_name %></span></td>
+              </tr>
+              <tr>
+                <td style="font-size: xx-large;color: red;"><span><%= tax_price(@product.product_price) %>円</span></td>
+              </tr>
+              <tr>
+                <td>製造元/<%= @product.product_company %></td>
+              </tr>
+              <tr>
+                <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
+                  <td><%= f.hidden_field :product_id, value:@product.id %>
+                  <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</td></tr>
+                  <tr><td><%= f.button :type => "submit", class: "btn btn-danger w-75" do %>
+                <i class="fas fa-shopping-cart" style="color: #FFF;">カートに入れる</i>
+                  <% end %></td></tr>
+                <% end %>
+              <tr>
+                <td><%= link_to "お問い合わせ",inquiry_path,class: "btn btn-outline-danger btn-lg" %>
+                     <% if current_shop.already_favorited?(@product)%>
+                     <%= link_to product_favorites_path(@product),method: :delete do %>
+                     <i class="fas fa-heart fa-2x size"></i>
+                     <% end %>
+                   <% else %>
+                      <%= link_to product_favorites_path(@product),method: :post do %>
+                      <i class="far fa-heart fa-2x size"></i>
+                      <% end %>
+                   <% end %></td>
+               </tr>
+            </tbody>
+          </table>
       </div>
     </div>
   </ul>

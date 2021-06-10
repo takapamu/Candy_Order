@@ -15,7 +15,6 @@
               <th><%= sort_link(@q, :product_price, "価格") %></th>
               <th>個数</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           <tbody id="count">
@@ -26,10 +25,9 @@
                 <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
                   <%= f.hidden_field :product_id, value:product.id %>
                   <th><%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</th>
-                  <th><%= f.button :type => "submit" do %>
-                    <i class="fas fa-shopping-cart" style="color: royalblue;">カートに入れる</i>
+                  <th><%= f.button :type => "submit" , class: "btn btn-danger w-60" do %>
+                    <i class="fas fa-shopping-cart" style="color: #FFF;">カートに入れる</i>
                   <% end %></th>
-                 <th><%= link_to "詳細ページ",product_path(product.id),class: "btn btn-info btn-sm" %></th>
                 <% end %>
               </tr>
             <% end %>

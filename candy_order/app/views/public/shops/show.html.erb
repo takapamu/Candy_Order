@@ -52,7 +52,7 @@
             <% @favorite_list.each do |product| %>
             <tr>
               <td><li class="link"><%= link_to product.product_name,product_path(product.id), class: "text" %></li></td>
-              <td><%= product.product_price%>円</td>
+              <td><%= tax_price(product.product_price)%>円</td>
             </tr>
             <% end %>
           </tbody>
