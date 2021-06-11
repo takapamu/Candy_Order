@@ -11,6 +11,7 @@
                 <%= attachment_image_tag data, :image, size: "190x150", class: "img_hover" %><br>
               <% end %>
                <li class="link"><%= link_to data.product_name, product_path(data.id), class: "text" %></li><br>
+               <%= tax_price(data.product_price) %>円
             </div>
           <% end %>
       </div>

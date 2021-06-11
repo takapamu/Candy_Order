@@ -65,7 +65,7 @@ h3:before {
 }
 //footer用
 h4{
-  font-family: 'Caveat', cursive;
+  font-family: 'IM Fell DW Pica SC', serif;
   margin: 7px 0;
 }
 
@@ -115,6 +115,8 @@ h4{
 .inline-block {
     display: inline-block;
     margin: 0 29px;
+    width: 19%;
+    vertical-align: text-top;
 }
 
 //header
@@ -144,6 +146,7 @@ header{
 .nav{
   float: right;
   text-align: center;
+  display: contents;
   background-color:#FFFFCC;
 }
 .nav li{
@@ -245,6 +248,7 @@ ul {
     padding: 50px 40px;
     background: #fff;
     border-radius: 30px;
+    width: 100%;
 }
 
 //ログインボタン
@@ -287,19 +291,44 @@ ul {
 
 /*検索ボタン*/
 .sbtn{
-width:70px;/*検索ボタンの横幅*/ 
-height:30px;/*検索ボタンの縦幅*/ 
-left:270px;/*検索ボタンの位置調整*/  
+width:70px;/*検索ボタンの横幅*/
+height:30px;/*検索ボタンの縦幅*/
+left:270px;/*検索ボタンの位置調整*/
 top:0;
-border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
-background:#7fbfff;/*検索ボタンの背景カラー*/ 
-border:none;/*検索ボタンの枠線を消す*/ 
-color:#fff;/*検索ボタンのテキストカラー*/ 
-font-weight:bold;/*検索ボタンのテキスト太字*/ 
-font-size:16px;/*検索ボタンのフォントサイズ*/ 
+border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+background:#7fbfff;/*検索ボタンの背景カラー*/
+border:none;/*検索ボタンの枠線を消す*/
+color:#fff;/*検索ボタンのテキストカラー*/
+font-weight:bold;/*検索ボタンのテキスト太字*/
+font-size:16px;/*検索ボタンのフォントサイズ*/
 }
 /*検索ボタンマウスオーバー時*/
 .sbtn:hover{
-color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
+color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
+
+//お問い合わせ
+
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn-c {
+  position: relative;
+  width: 22%;
+  height: 10%;
+  margin-left: 20px;
+}
+
+a.btn-c i.fa {
+  margin-right: 1rem;
+}
+
+
 

@@ -1,52 +1,51 @@
-<div class="container">
-  <ul>
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-         <%= render partial: 'layouts/flash' %>
-      </div>
+<div class='container'>
+    <ul>
+  <div class='row'>
+    <div class='col-4 offset-1'>
+      <h2>商品登録</h2>
     </div>
-    <div class="row">
-      <div class="col-7 offset-1">
-        <h2>商品新規登録</h2>
-      </div>
+  </div>
+  <div class='row'>
+    <div class='col-8 offset-4'>
+        <%= render partial: 'layouts/flash' %>
+      <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
+       <%= render 'layouts/error_messages', model: f.object %>
+        <div class='form-group'>
+          <label>写真</label><br>
+          <%= f.attachment_field :image, placeholder:'写真' %>
+        </div>
+        <div class='form-group'>
+          <label>商品名</label><br>
+          <%= f.text_field :product_name, autofocus: true, id:'inputName',class: "form-control",style: "width: 40%;" %>
+        </div>
+        <div class='form-group'>
+          <label>商品説明</label><br>
+          <%= f.text_field :product_introduction, autofocus: true, id:'inputIntroduction',class: "form-control",style: "width: 40%;" %>
+        </div>
+        <div class='form-group'>
+          <label>製造元</label><br>
+          <%= f.text_field :product_company,class: "form-control",style: "width: 40%;" %>
+        </div>
+        <div class='form-group'>
+          <label>ジャンル</label><br>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "Select"}, {class: 'btn btn-outline-dark'} %>
+        </div>
+        <div class='form-group'>
+          <label>価格(税抜)</label><br>
+          <%= f.number_field :product_price, autofocus: true, id:'inputPrice', placeholder:'税抜価格' %>
+          <text>円</text>
+        </div>
+        <div class='form-group'>
+          <label>ステータス</label><br>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, '販売中', {value: :true, style: 'display: inline-block;'} %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, '販売停止中', {value: :false, style: 'display: inline-block;'} %>
+        </div>
+        <div class='form-group'>
+          <%= f.submit '登録する', class:'btn btn-lg btn-outline-dark' %>
+        </div>
+      <% end %>
     </div>
-    <div class="row">
-      <div class="col-8 offset-2">
-        <table class="table table-borderless">
-         <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
-           <%= render 'layouts/error_messages', model: f.object %>
-           <tbody>
-            <tr>
-          　    <td><%= f.label :商品画像 %></td>
-               <td><%= f.attachment_field :image, placeholder:'写真' %></td>
-             </tr>
-             <tr>
-          　    <td><%= f.label :商品名 %></td>
-               <td><%= f.text_field :product_name ,class: "form-control" %></td>
-             </tr>
-             <tr>
-          　    <td><%= f.label :商品説明 %></td>
-               <td><%= f.text_area :product_introduction ,class: "form-control" %></td>
-             </tr>
-             <tr>
-          　    <td><%= f.label :制作会社 %></td>
-               <td><%= f.text_field :product_company ,class: "form-control" %></td>
-             </tr>
-             <tr>
-               <td><%= f.label :ジャンル %></td>
-               <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "Select"}, {class: 'btn btn-outline-dark'} %></td>
-             </tr>
-             <tr>
-               <td><%= f.label :金額 %></td>
-               <td><%= f.number_field :product_price, min: "1"  %></td>
-             </tr>
-             <tr>
-                <td><%= f.submit "新規登録" %></td>
-             </tr>
-            </tbody>
-          <% end %>
-        </table>
-      </div>
     </ul>
   </div>

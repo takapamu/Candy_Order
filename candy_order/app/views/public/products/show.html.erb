@@ -28,14 +28,13 @@
                 <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</td></tr>
             <tr>
               <td><%= f.button :type => "submit", class: "btn btn-danger w-75" do %>
-                  <i class="fas fa-shopping-cart" style="color: #FFF;">カートに入れる</i>
+                  <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
                 <% end %>
               </td>
             </tr>
               <% end %>
             <tr>
               <td>
-                <%= link_to "お問い合わせ",inquiry_path,class: "btn btn-outline-danger btn-lg" %>
                   <% if shop_signed_in? %>
                     <% if current_shop.already_favorited?(@product)%>
                      <%= link_to product_favorites_path(@product),method: :delete do %>

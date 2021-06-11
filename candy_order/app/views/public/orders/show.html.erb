@@ -30,7 +30,7 @@
           <tbody>
             <% @order_details.each do |order_detail| %>
               <tr>
-                <th><li class="link"><%= link_to order_detail.product.product_name,product_path(@product.id), class: "text" %></li></th>
+                <th><li class="link"><%= link_to order_detail.product.product_name,product_path(order_detail.product.id), class: "text" %></li></th>
                 <th><%= order_detail.quantity %></th>
                 <th><%= tax_subtotal(order_detail.product.product_price,order_detail.quantity) %></th>
               </tr>

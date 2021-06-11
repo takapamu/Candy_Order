@@ -73,3 +73,4 @@ gem 'rspec-rails'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'dotenv-rails'
+gem 'whenever', require: false
