@@ -1,6 +1,12 @@
 <div class="container">
   <ul>
     <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-7 offset-1">
         <h2>商品新規登録</h2>
       </div>
@@ -9,6 +15,7 @@
       <div class="col-8 offset-2">
         <table class="table table-borderless">
          <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
+           <%= render 'layouts/error_messages', model: f.object %>
            <tbody>
             <tr>
           　    <td><%= f.label :商品画像 %></td>

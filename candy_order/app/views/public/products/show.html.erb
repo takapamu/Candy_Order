@@ -1,6 +1,12 @@
 <div class="container">
   <ul>
     <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-3 offset-2">
         <%= attachment_image_tag @product, :image, :fill, 300, 300, format:'jpeg', fallback:'no_image.jpg' %>
       </div>

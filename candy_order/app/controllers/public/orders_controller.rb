@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  
+
   def index
     @shop = current_shop
     @orders = @shop.orders
@@ -16,13 +16,20 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @shop = current_shop
     @cart_products = @shop.cart.cart_products #カートにある商品を持ってくる
+
+    if @cart_products.empty?
+       flash[:danger] = "カートが空です"
+       redirect_to request.referer
+     return
+    end
   end
 
   def create
+    @shop = current_shop
     @order = Order.new(order_params)
     @order.shop_id = current_shop.id
     @order.save
-    @shop = current_shop
+    OrderMailer.send_when_admin_reply(@shop,@order).deliver
     @cart_products = @shop.cart.cart_products
     @cart_products.each do |cart_product|
      order_detail = OrderDetail.new
@@ -32,7 +39,6 @@ class Public::OrdersController < ApplicationController
      order_detail.save!
      cart_product.destroy
     end
-
      redirect_to thanks_path
   end
 

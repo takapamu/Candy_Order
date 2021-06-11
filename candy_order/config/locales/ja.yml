@@ -8,3 +8,11 @@ ja:
         telephone_number: 電話番号
         email: メールアドレス
         password: パスワード
+      genre:
+        name: ジャンル名
+      product:
+        genre: ジャンル
+        product_name: 商品名
+        product_company: 製造元
+        product_introduction: 商品説明
+        product_price: 金額

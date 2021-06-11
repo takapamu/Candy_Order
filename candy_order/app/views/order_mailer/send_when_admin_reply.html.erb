@@ -1,0 +1,21 @@
+  <h2><%= @shop.name %> 様</h2>
+　<p>以下の内容で発注が完了いたしました。</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>商品</th>
+        <th>価格(税抜)</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="count">
+    <% @cart_products.each do |cart_product| %>
+       <tr>
+         <th><%= cart_product.product.product_name %></th>
+         <th><%= cart_product.product.product_price %>円</th>
+         <th><%= cart_product.quantity %>個</th>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>

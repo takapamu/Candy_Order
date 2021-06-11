@@ -1,5 +1,6 @@
 class Public::CartsController < ApplicationController
   before_action :setup_cart_product!, only:  %i[add_product update_product delete_product ]
+  before_action :authenticate_shop!
 
   def show
     @cart_products = current_cart.cart_products.includes([:product]) #includesはN+1問題
@@ -13,7 +14,7 @@ class Public::CartsController < ApplicationController
         redirect_to cart_path(current_cart)
     else
         flash[:danger] = "追加に失敗しました"
-        redirect_to product_url(params[:product_id])
+        redirect_to request.referer
     end
   end
   

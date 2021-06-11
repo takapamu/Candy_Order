@@ -5,6 +5,12 @@ class Product < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  
+  validates :product_name, presence: true,length: { minimum: 1, maximum: 20 }
+  validates :product_introduction, presence: true,length: { minimum: 1, maximum: 100 }
+  validates :product_company, presence: true
+  validates :product_price,numericality: {greater_than: 0}
+  validates :is_active, inclusion: { in: [true, false] }
 
   default_scope -> { order(created_at: :desc) } #新着順で並べる
 
