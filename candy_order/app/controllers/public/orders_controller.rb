@@ -16,7 +16,7 @@ class Public::OrdersController < ApplicationController
     @cart_products = @shop.cart.cart_products #カートにある商品を持ってくる
 
     if @cart_products.empty?
-       flash[:danger] = "カートが空です"
+       flash[:danger] = "商品がありません"
        redirect_to request.referer
      return
     end

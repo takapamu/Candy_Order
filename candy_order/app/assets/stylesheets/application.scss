@@ -18,7 +18,16 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+.container.hoge{
+   width: 100%;
+   max-width: 1170px;
+   padding:0 15px;
+   margin:0 auto;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+}
 
 body{
   background-color: #FFFFCC;
@@ -40,6 +49,7 @@ h1{
 
 h2{
     font-size: 2rem;
+    font-family: 'Kaushan Script', cursive;
     margin: 30px 0;
 }
 
@@ -217,18 +227,6 @@ header{
     justify-content: center;
 }
 
-
-
-.container.hoge{
-   width: 100%;
-   max-width: 1170px;
-   padding:0 15px;
-   margin:0 auto;
-   display: flex;
-   flex-wrap: wrap;
-   align-items: center;
-   justify-content: center;
-}
 
 *,
 *:after,
