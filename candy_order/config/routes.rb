@@ -48,7 +48,8 @@ Rails.application.routes.draw do
     
     get '/search' => 'search#search'
 
-    resources :carts, only: [:show]
+    resources :carts, only: [:show] 
+    delete 'destroy_all' => 'carts#destroy_all'
     post '/add_product' => 'carts#add_product' #カートに商品を追加
     post '/update_product' => 'carts#update_product'
     delete '/delete_product' => 'carts#delete_product'

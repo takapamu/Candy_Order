@@ -12,37 +12,42 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-        <%= form_with model:@shop,local:true do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-          <table class="table table-borderless">
-            <tbody>
-              <tr>
-                <td>店舗名</td>
-                <td><%= f.text_field :name, class: "form-control" %></td>
-              </tr>
-              <tr>
-                <td>郵便番号</td>
-                <td><%= f.text_field :postal_code, class: "form-control" %></td>
-              </tr>
-              <tr>
-                <td>住所</td>
-                <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
-              </tr>
-              <tr>
-                <td>電話番号</td>
-                <td><%= f.text_field :telephone_number, class: "form-control" %></td>
-              </tr>
-              <tr>
-                <td>メールアドレス</td>
-                <td><%= f.email_field :email, class: "form-control" %></td>
-              </tr>
-            </tbody>
-          </table>
-          <%= f.submit "更新する",class: "btn btn-info" %>
-        <% end %>
+      <div class="col-8 offset-3">
+      <%= form_with model:@shop, local:true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+        <table class="table table-borderless">
+          <tr>
+            <td><lebel>氏名</lebel></td>
+            <td><%= f.text_field :name,class:"form-control"  %></td>
+           </tr>
+           <tr>
+            <td><lebel>郵便番号</lebel></td>
+            <td><%= f.text_field :postal_code, class:"form-control"  %></td>
+           </tr>
+           <tr>
+             <td><lebel>住所</lebel></td>
+             <td><%= f.text_field :address,class:"form-control" %></td>
+           </tr>
+           <tr>
+             <td><lebel>電話番号</lebel></td>
+             <td><%= f.telephone_field :telephone_number,class:"form-control"  %></td>
+           </tr>
+           <tr>
+             <td><lebel>メールアドレス</lebel></td>
+             <td><%= f.email_field :email,class:"form-control"  %></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-2">
+            <div class="form-group" style="text-align: center;">
+            <%= f.submit "編集内容を保存",class: "btn btn-outline-dark"%>
+            </div>
+         <% end %>
       </div>
     </div>
   </ul>
 </div>
+
+  

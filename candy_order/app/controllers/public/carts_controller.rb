@@ -35,6 +35,15 @@ class Public::CartsController < ApplicationController
    end
       redirect_to cart_path(current_cart)
   end
+  
+  def destroy_all
+    if CartProduct.destroy_all
+       flash[:danger] = "削除しました"
+    else
+       flash[:alert] = "更新に失敗しました"
+    end
+       redirect_to request.referer
+  end
     
 
   private

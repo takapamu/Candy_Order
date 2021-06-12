@@ -39,16 +39,18 @@
         </table>
       </div>
       <div class='col-3 offset-1'>
-        <table class="table table-bordered">
+        <table class="table-borderless">
           <tbody>
             <tr>
-              <th class="bg-light">商品合計</th>
-              <th style="background: #FFFFCC;">
-                <% array = [] %>
-                <% @order.order_details.each do |order_detail| %>
-                  <% array << (order_detail.product.product_price * 1.1 * order_detail.quantity).round %>
-                <% end %>
-                <%= array.sum %><text>円</text>
+              <th><h5>商品合計</h5></th>
+              <th>
+                <h5>
+                  <% array = [] %>
+                  <% @order.order_details.each do |order_detail| %>
+                    <% array << (order_detail.product.product_price * 1.1 * order_detail.quantity).round %>
+                  <% end %>
+                  <%= array.sum %><text>円</text>
+                </h5>
               </th>
             </tr>
           </tbody>

@@ -10,6 +10,9 @@
       <div class="col-7 offset-1">
         <h2>発注商品 <i class="fas fa-cat"></i></h2>
       </div>
+      <div class="col-3" style="margin-top: 20px;">
+        <%= link_to "全て削除", destroy_all_path, method: :delete, data: {comfirm: "削除してよろしいですか？"}, class: "btn btn-outline-danger" %>
+      </div>
     </div>
     <div class="row">
       <div class="col-10 offset-1">
