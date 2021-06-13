@@ -16,7 +16,7 @@
             <%= link_to product_path(product.id) do %>
                 <%= attachment_image_tag product, :image, size: "100x100", class: "img_hover", fallback:'no_image.jpg' %><br>
             <% end %>
-            <p><li class="link"><%= link_to product.product_name, product_path(product.id), class: "text" %><img src="/assets/new.png" alt=""></li></p>
+            <p><li class="link"><%= link_to product.product_name, product_path(product.id), class: "text" %><%=image_tag "new.png" %></li></p>
             <p><%= tax_price(product.product_price) %>円(税込)</p>
           </div>
         <% end %>
