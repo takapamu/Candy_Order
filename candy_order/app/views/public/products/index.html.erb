@@ -1,18 +1,6 @@
 <div class="container">
-  <ul>
-      <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-         <%= render partial: 'layouts/flash' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 offset-6">
-        <h2>商品一覧 <i class="fas fa-candy-cane"></i></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
+  <div class="row">
+  <div class="col-3">
         <table class="table table-bordered genre-table">
           <thead>
             <tr>
@@ -32,6 +20,7 @@
     </div>
     <div class="col-9">
       <ul>
+        <h2 style="text-align: center;">商品一覧 <i class="fas fa-candy-cane"></i></h2>
       <table class="table">
           <thead>
             <tr>
@@ -57,14 +46,12 @@
             <% end %>
           </tbody>
         </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8 offset-4">
+        <div class="text" style="display: flex;justify-content: center;">
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
-    </div>
+        </div>
+     </ul>
+   </div>
   </div>
-  </ul>
 </div>
 
 
