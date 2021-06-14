@@ -31,12 +31,26 @@ $(window).bind('scroll', function () {
 });
 
 
-
-
 $(function() {
   $('.a').slick({
-    slidesToScroll: 1,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    fade: true,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
+    cssEase: 'linear'
+  });
+});
+
+
+$(function(){
+  $('.global-nav li a').each(function(){
+    var target = $(this).attr('href');
+    if(location.href.match(target)) {
+      $(this).parent().addClass('current');
+    } else {
+      $(this).parent().removeClass('current');
+    }
   });
 });

@@ -7,14 +7,12 @@
     </div>
     <div class="row">
       <div class="col-8 offset-2">
-         <ul class="list-group">
-            <% @orders.each do |order| %>
-              <%= link_to(order_path(order), class: "list-group-item list-group-item-action") do %>
-                <%= order.created_at %>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
+        <% @orders.each do |order| %>
+          <%= link_to(order_path(order), class: "list-group-item list-group-item-action") do %>
+            <%= order.created_at %>
+          <% end %>
+        <% end %>
       </div>
-    </ul>
-  </div>
+    </div>
+  </ul>
+</div>

@@ -7,13 +7,11 @@
     </div>
     <div class="row">
       <div class="col-8 offset-2">
-        <ul class="list-group">
           <% @shops.each do |shop| %>
             <%= link_to(admin_shop_path(shop), class: "list-group-item list-group-item-action") do %>
               <%= shop.name %>
             <% end %>
           <% end %>
-        </ul>
       </div>
     </div>
     <div class="row">

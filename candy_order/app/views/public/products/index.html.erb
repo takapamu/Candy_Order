@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
   <div class="col-3">
-        <table class="table table-bordered genre-table" style="background-color: #FFFFFF;">
-          <thead>
-            <tr>
-              <th>ジャンル検索</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% @genres.each do |genre| %>
-            <tr>
-              <td>
-                <li class="link"><%= link_to genre.name, search_path('search[value]': genre.id, 'search[how]': "match"),class: "text" %></li>
-              </td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
+    <table class="table table-bordered genre-table" style="background-color: #FFFFFF;">
+      <thead>
+        <tr>
+          <th>ジャンル検索</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td>
+            <li class="link"><%= link_to genre.name, search_path('search[value]': genre.id, 'search[how]': "match"),class: "text" %></li>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
     </div>
     <div class="col-9">
       <ul>
