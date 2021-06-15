@@ -25,7 +25,8 @@
             <tr>
               <%= form_with model:@cart_product, url: add_product_path, local: true do |f| %>
                 <td><%= f.hidden_field :product_id, value:@product.id %>
-                <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</td></tr>
+                <%= f.number_field :quantity, style: "width: 5em;", min: "0" %>個</td>
+            </tr>
             <tr>
               <td><%= f.button :type => "submit", class: "btn btn-danger w-75" do %>
                   <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
@@ -35,19 +36,19 @@
               <% end %>
             <tr>
               <td>
-                  <% if shop_signed_in? %>
-                    <% if current_shop.already_favorited?(@product)%>
-                     <%= link_to product_favorites_path(@product),method: :delete do %>
-                       <i class="fas fa-heart fa-2x size"></i>
-                     <% end %>
-                    <% else %>
-                      <%= link_to product_favorites_path(@product),method: :post do %>
-                        <i class="far fa-heart fa-2x size"></i>
-                      <% end %>
-                     <% end %>
-                  <% end %>
-               </td>
-             </tr>
+                <% if shop_signed_in? %>
+                  <% if current_shop.already_favorited?(@product)%>
+                   <%= link_to product_favorites_path(@product),method: :delete do %>
+                     <i class="fas fa-heart fa-2x size"></i>
+                   <% end %>
+                  <% else %>
+                    <%= link_to product_favorites_path(@product),method: :post do %>
+                      <i class="far fa-heart fa-2x size"></i>
+                    <% end %>
+                   <% end %>
+                <% end %>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

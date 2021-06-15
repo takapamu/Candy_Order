@@ -14,7 +14,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @shop = current_shop
     @cart_products = @shop.cart.cart_products #カートにある商品を持ってくる
-
     if @cart_products.empty?
        flash[:danger] = "商品がありません"
        redirect_to request.referer
@@ -41,7 +40,9 @@ class Public::OrdersController < ApplicationController
   end
 
 private
-  def order_params
-    params.permit(:amount,:quantity,:product_id)
-  end
+
+   def order_params
+   params.permit(:amount,:quantity,:product_id)
+   end
+  
 end

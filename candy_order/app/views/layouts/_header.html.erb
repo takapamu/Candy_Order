@@ -1,7 +1,7 @@
 <header class="visible">
   <nav class="navbar">
     <div class="container header">
-       <ul class="nav">
+      <ul class="nav">
         <% if shop_signed_in? %>
           <div class="navigation">
             <%= link_to root_path do %>
@@ -29,7 +29,7 @@
         <% else %>
           <div class="navigation">
             <%= link_to root_path do %>
-              <%= image_tag 'logo.png',style: "width: 80%;" %>
+              <%= image_tag 'logo.jpg',style: "width: 80%;" %>
             <% end %>
             <li class="button"><a href="/">HOME</a></li>
             <li class="button"><%= link_to ' 商品一覧', products_path %></li>
