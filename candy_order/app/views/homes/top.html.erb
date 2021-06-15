@@ -39,15 +39,23 @@
 <div class="container" style="border-top: groove;padding-top: 20px; margin-top: 35px;">
    <div class="row">
      <div class="col-6">
-       <h5>このサイトは、商品を発注するサイトです。</h5>
+       <h5 style="margin-top: 100px;">このサイトは、商品を発注するサイトです。</h5>
        <h5>商品は、会員登録しなくても見ることが出来ますが、</h5>
-       <h5>商品を発注する際には<%= link_to 'こちら', new_shop_registration_path, class: "text" %>から会員登録して下さい。</h5>
+       <h5 style="margin-bottom: 100px;">商品を発注する際には<%= link_to 'こちら', new_shop_registration_path, class: "text" %>から会員登録して下さい。</h5>
+       <h5 style="text-align: center; padding-right: 100px;">商品に関するお問い合わせ</h5>
+          <li class="link" style="text-align: center; font-size: large;"><%= link_to inquiry_path,class: "text" do %>
+            <i class="far fa-envelope-open" style="color: darkorange; padding-right: 100px;">お問い合わせ</i>
+          <% end %></li>
       </div>
       <div class="col-6">
-        <h5 style="text-align: center;">商品に関するお問い合わせ</h5>
-          <li class="link" style="text-align: center; font-size: large;"><%= link_to inquiry_path,class: "text" do %>
-            <i class="far fa-envelope-open" style="color: darkorange;">お問い合わせ</i>
-          <% end %></li>
+        <%= month_calendar products: @all do |date, all| %>
+          <%= date.day %>
+          <% all.each do |i| %>
+            <div>
+              <%= i.price %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
    </div>
 </div>

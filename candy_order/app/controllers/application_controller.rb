@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
      before_action :configure_permitted_parameters, if: :devise_controller?
      add_flash_types :success, :info, :warning, :danger#フラッシュメッセージの色
      helper_method :current_cart
-      before_action :set_search
+     before_action :set_search
 
       def set_search
         @q = Product.ransack(params[:q]) #ransrakの検索メソッド
+        @search = Product.ransack(params[:q])
         @products = @q.result(distinct: true).page(params[:page]).per(10)
       end
 
