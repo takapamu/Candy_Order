@@ -273,6 +273,7 @@ a.btn-c i.fa {
   /* カーソルを離した際のアニメーションの速度調整 */
   transition:.2s all;
   text-align: center;
+  font-size:22px;
 }
 .button p {
   height: 10px;
@@ -299,6 +300,8 @@ a.btn-c i.fa {
 .navigation:hover .button:hover > p {
   font-weight: bold;
 }
+
+// スライド用
 
 .slick-dots {
     position: absolute;

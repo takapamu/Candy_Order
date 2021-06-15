@@ -2,7 +2,7 @@ class Public::ProductsController < ApplicationController
 
   def index
     @q = Product.ransack(params[:q]) #ransrakの検索メソッド
-    @products = @q.result(distinct: true).page(params[:page]).per(10)
+    @products = @q.result(distinct: true).page(params[:page]).per(9)
     @genres = Genre.all
   end
 
