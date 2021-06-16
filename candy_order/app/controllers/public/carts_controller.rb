@@ -6,10 +6,27 @@ class Public::CartsController < ApplicationController
     @cart_products = current_cart.cart_products.includes([:product]) #includesはN+1問題
   end
 
+
   def add_product
     params[:cart_products].each do |cart_product|
-    current_cart.cart_products.find_by(product_id: cart_product[:product_id])
-    current_cart.cart_products.create(product_id: cart_product[:product_id],quantity: cart_product[:quantity])
+    tmp = current_cart.cart_products.find_by(product_id: cart_product[:product_id])
+    if tmp.blank?
+      current_cart.cart_products.create(product_id: cart_product[:product_id],quantity: cart_product[:quantity])
+      #@cart_product = CartProduct.create(product_id: cart_product[:product_id],quantity: cart_product[:quantity])
+      #@cart_product.save
+    else
+      if nil != cart_product[:quantity]
+        if !cart_product[:quantity].is_a?(Integer) #文字列だったら数値に
+        cart_product[:quantity] =  cart_product[:quantity].to_i
+        end
+        if !tmp.quantity.is_a?(Integer)
+        tmp.quantity = tmp.quantity.to_i
+        end
+      @new_quantity = cart_product[:quantity] + tmp.quantity
+      #new_quantity = current_cart.cart_products.quantity
+      tmp.update_attribute(:quantity, @new_quantity)
+      end
+    end
     end
     if current_cart.cart_products.count
        flash[:success] = "追加しました"

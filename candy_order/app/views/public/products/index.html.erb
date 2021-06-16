@@ -29,26 +29,24 @@
          <%= f.submit '完了' %>
          <% end %>
         </div>
-          <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
-            <% @products.each do |product| %>
-             <div class="inline-block" style="width: 25%; text-align: center;">
-                <%= link_to product_path(product.id) do %>
-                  <%= attachment_image_tag product, :image, size: "125x125", class: "img_hover",style: "margin-top: 20px;" %><br>
-                <% end %>
-                 <li class="link" style="font-size: 15px; height: 40px; margin-bottom: 7px;"><%= link_to product.product_name, product_path(product.id), class: "text" %></li>
-                 <%= tax_price(product.product_price) %>円(税込)
-            
-                    <%= hidden_field_tag "cart_products[][product_id]",product.id %>
-                    <%= number_field_tag "cart_products[][quantity]", "",style: "width: 5em; margin: 7px 0;", min: "0" %>個
-                
-              </div>
+        <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
+          <% @products.each do |product| %>
+            <div class="inline-block" style="width: 25%; text-align: center;">
+              <%= link_to product_path(product.id) do %>
+                <%= attachment_image_tag product, :image, size: "125x125", class: "img_hover",style: "margin-top: 20px;" %><br>
+              <% end %>
+              <li class="link" style="font-size: 15px; height: 40px; margin-bottom: 7px;"><%= link_to product.product_name, product_path(product.id), class: "text" %></li>
+              <%= tax_price(product.product_price) %>円(税込)</br>
+              <%= hidden_field_tag "cart_products[][product_id]",product.id %>
+              <%= number_field_tag "cart_products[][quantity]", "",style: "width: 5em; margin: 7px 0;", min: "0" %>個
+           </div>
             <% end %>
           <div class="col-7 offset-4" style="margin-top: 30px; padding-left: 40px;">
               <%= f.button :type => "submit" , class: "btn btn-danger w-60" do %>
                 <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
               <% end %>
           </div>
-        <% end %> 
+      <% end %> 
       <div class="col-7 offset-4" style="padding-left: 35px;">
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
       </div>
