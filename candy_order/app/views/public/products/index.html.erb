@@ -23,29 +23,33 @@
         <div class="col-4 offset-4">
           <h2 style="text-align: center;">商品一覧 <i class="fas fa-candy-cane"></i></h2>
         </div>
-        <div class="col-5 offset-7">
+        <div class="col-4 offset-9">
          <%= search_form_for @search, url: search_products_path ,html:{ method: :post} do |f| %>
          <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'product_price asc', '価格の高い順': 'product_price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} ) %>
          <%= f.submit '完了' %>
          <% end %>
         </div>
+          <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
             <% @products.each do |product| %>
-             <div class="inline-block" style="width: 25%;">
+             <div class="inline-block" style="width: 25%; text-align: center;">
                 <%= link_to product_path(product.id) do %>
                   <%= attachment_image_tag product, :image, size: "125x125", class: "img_hover",style: "margin-top: 20px;" %><br>
                 <% end %>
-                 <li class="link" style="font-size: 13px; height: 40px;"><%= link_to product.product_name, product_path(product.id), class: "text" %></li>
-                 <%= tax_price(product.product_price) %>円
-                 <%= form_with model:@cart_product, url: add_product_path, 'data-turbolinks': false,local: true do |f| %>
-                    <%= f.hidden_field :product_id, value:product.id %>
-                    <%= f.number_field :quantity, style: "width: 5em; margin: 7px 0;", min: "0" %>個
-                    <%= f.button :type => "submit" , class: "btn btn-danger w-60" do %>
-                      <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
-                    <% end %>
-                  <% end %>
+                 <li class="link" style="font-size: 15px; height: 40px; margin-bottom: 7px;"><%= link_to product.product_name, product_path(product.id), class: "text" %></li>
+                 <%= tax_price(product.product_price) %>円(税込)
+            
+                    <%= hidden_field_tag "cart_products[][product_id]",product.id %>
+                    <%= number_field_tag "cart_products[][quantity]", "",style: "width: 5em; margin: 7px 0;", min: "0" %>個
+                
               </div>
             <% end %>
-      <div class="col-7 offset-5">
+          <div class="col-7 offset-4" style="margin-top: 30px; padding-left: 40px;">
+              <%= f.button :type => "submit" , class: "btn btn-danger w-60" do %>
+                <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
+              <% end %>
+          </div>
+        <% end %> 
+      <div class="col-7 offset-4" style="padding-left: 35px;">
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
       </div>
      </ul>

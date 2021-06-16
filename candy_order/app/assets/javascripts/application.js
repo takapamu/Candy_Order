@@ -16,7 +16,7 @@
 //= require cocoon
 //= require_tree .
 //= require bootstrap-sprockets
-
+//= require data-confirm-modal
 
 
 $(window).bind('scroll', function () {
@@ -40,17 +40,5 @@ $(function() {
     autoplay: true,
     autoplaySpeed: 2500,
     cssEase: 'linear'
-  });
-});
-
-
-$(function(){
-  $('.global-nav li a').each(function(){
-    var target = $(this).attr('href');
-    if(location.href.match(target)) {
-      $(this).parent().addClass('current');
-    } else {
-      $(this).parent().removeClass('current');
-    }
   });
 });

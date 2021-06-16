@@ -1,5 +1,5 @@
 class Public::ProductsController < ApplicationController
-  
+
 
   def index
     @q = Product.ransack(params[:q]) #ransrakの検索メソッド
@@ -10,7 +10,7 @@ class Public::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
   end
-  
+
   def search
     if params[:q].present?
       @search = Product.ransack(search_params)

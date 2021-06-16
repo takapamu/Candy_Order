@@ -315,3 +315,25 @@ a.btn-c i.fa {
     text-align: center;
     border: none;
 }
+
+//新規登録アイコン
+
+.fa-store:before {
+    content: "\f54e";
+    font-size: 17px;
+}
+
+.fa-envelope:before {
+    content: "\f0e0";
+    font-size: 17px;
+}
+
+.fa-phone-alt:before {
+    content: "\f879";
+    font-size: 17px;
+}
+
+.fa-lock:before {
+    content: "\f023";
+    font-size: 17px;
+}

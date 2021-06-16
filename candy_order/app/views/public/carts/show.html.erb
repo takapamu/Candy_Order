@@ -11,7 +11,7 @@
         <h2>発注商品 <i class="fas fa-cat"></i></h2>
       </div>
       <div class="col-3" style="margin-top: 20px;">
-        <%= link_to "全て削除", destroy_all_path, method: :delete, data: {comfirm: "削除してよろしいですか？"}, class: "btn btn-outline-danger" %>
+        <%= link_to "全て削除", destroy_all_path, method: :delete, class: "btn btn-outline-danger",data: {confirm: "商品を全て削除しますか？",cancel: 'やめる', commit: '削除'}, title: '削除の確認' %>
       </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
                      <%= f.submit "更新する", class: "btn btn-outline-success btn-sm" %></th>
               <% end %>
                  <th><%= tax_subtotal(cart_product.product.product_price, cart_product.quantity) %>円</th>
-                 <th><%= link_to "削除する", delete_product_path(product_id: cart_product.product.id),method: :delete,class: "btn btn-danger btn-sm", data: {confirm: "削除しますか？"} %></th>
+                 <th><%= link_to "削除する", delete_product_path(product_id: cart_product.product.id),method: :delete,class: "btn btn-danger btn-sm", data: {confirm: "商品を削除しますか？",cancel: 'やめる', commit: '削除'}, title: '削除の確認' %></th>
                 </tr>
             <% end %>
           </tbody>
