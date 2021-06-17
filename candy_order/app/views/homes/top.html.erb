@@ -8,7 +8,19 @@
         <div class="b"><%=image_tag 'image5.jpg' ,class:'c'%></div>
     </div>
   <div class="row">
+    <div class="col-4">
     <h3>最近入荷した商品達</h3>
+    </div>
+    <div class="col-4 offset-4" style="text-align: end; padding-top: 15px">
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <a href="/products" class="button-text">商品一覧へ</a>
+      </button>
+    </div>
+    </div>
+    <div class="row">
       <ul>
         <% @products.each do |product| %>
           <div class="inline-block">
@@ -20,9 +32,21 @@
           </div>
         <% end %>
       </ul>
-  </div>
-  <div class="row">
-    <h3>おすすめ商品</h3>
+    </div>
+    <div class="row">
+      <div class="col-4">
+       <h3>おすすめ商品</h3>
+      </div>
+      <div class="col-4 offset-4" style="text-align: end; padding-top: 15px">
+        <button class="learn-more">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <a href="/products" class="button-text">商品一覧へ</a>
+        </button>
+      </div>
+    </div>
+    <div class="row">
       <ul>
         <% @random.each do |product| %>
           <div class="inline-block">

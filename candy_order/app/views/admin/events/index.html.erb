@@ -1,9 +1,13 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-7 offset-1">
-        <h2>店舗一覧 <i class="fas fa-store-alt"></i></i></h2>
-        <%= link_to 'イベント追加', new_admin_event_path %>
+      <div class="col-4 offset-2">
+        <h2>イベント一覧 <i class="fas fa-store-alt"></i></h2>
+      </div>
+      <div class="col-2 offset-3" style="padding-top: 22px;">
+        <%= link_to new_admin_event_path do %>
+          <%= image_tag 'new_create.jpg', size: "50x50" %>
+        <% end %>
       </div>
     </div>
     <div class="row">
