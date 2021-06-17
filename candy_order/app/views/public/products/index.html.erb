@@ -42,12 +42,17 @@
            </div>
             <% end %>
           <div class="col-7 offset-4" style="margin-top: 30px; padding-left: 40px;">
-              <%= f.button :type => "submit" , class: "btn btn-danger w-60" do %>
+              <%= f.button :type => "submit" , class: "btn btn-danger btn-lg" do %>
                 <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
               <% end %>
           </div>
+          <div class="col-7 offset-3" style="margin-top: 30px; padding-left: 60px;">
+              <h6 style="padding-left: 65px;">まとめて追加する際は、</h6>
+              <h6 style="color: red; padding-left: 30px;">「ページごと」で、追加して下さい</h6>
+              <h6 style="color: red; border-bottom: solid 2px red;">⚠ページをまたいで追加することは出来ません。</h6>
+          </div>
       <% end %> 
-      <div class="col-7 offset-4" style="padding-left: 35px;">
+      <div class="col-7 offset-5" style="padding-left: 10px;">
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
       </div>
      </ul>

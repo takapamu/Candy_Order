@@ -1,6 +1,8 @@
 class Shop < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_create :send_welcome_email
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -17,6 +19,10 @@ class Shop < ApplicationRecord
 
   def already_favorited?(product)
     self.favorites.exists?(product_id: product.id)
+  end
+
+  def send_welcome_email
+    ShopNoticeMailer.send_signup_email(self).deliver
   end
 
 end

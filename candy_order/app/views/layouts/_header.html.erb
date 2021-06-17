@@ -21,6 +21,9 @@
           </div>
         <% elsif admin_signed_in? %>
           <div class="navigation">
+            <%= link_to root_path do %>
+              <%= image_tag 'logo.jpg',style: "width: 80%;" %>
+            <% end %>
             <li class="button"><%= link_to ' 店舗一覧', admin_shops_path %></li>
             <li class="button"><%= link_to ' 商品一覧', admin_products_path %></li>
             <li class="button"><%= link_to ' ジャンル一覧', admin_genres_path %></li>

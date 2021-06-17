@@ -27,6 +27,7 @@ class Public::OrdersController < ApplicationController
     @order.shop_id = current_shop.id
     @order.save
     OrderMailer.send_when_admin_reply(@shop,@order).deliver
+    OrderMailer.send_when_admin_received(@shop,@order).deliver
     @cart_products = @shop.cart.cart_products
     @cart_products.each do |cart_product|
      order_detail = OrderDetail.new
@@ -44,5 +45,5 @@ private
    def order_params
    params.permit(:amount,:quantity,:product_id)
    end
-  
+
 end
