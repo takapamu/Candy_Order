@@ -68,5 +68,6 @@ Rails.application.routes.draw do
       resources :genres, only: [:index,:edit,:create]
       patch 'genre/:id' => 'genres#update',as: 'genre'
       resources :products, only: [:index,:show,:edit,:new,:create,:update]
+      resources :events
     end
 end

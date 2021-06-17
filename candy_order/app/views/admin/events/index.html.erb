@@ -1,0 +1,24 @@
+<div class="container">
+  <ul>
+    <div class="row">
+      <div class="col-7 offset-1">
+        <h2>店舗一覧 <i class="fas fa-store-alt"></i></i></h2>
+        <%= link_to 'イベント追加', new_admin_event_path %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-2">
+          <% @events.each do |event| %>
+            <%= link_to(admin_event_path(event), class: "list-group-item list-group-item-action") do %>
+              <%= event.title %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 offset-4">
+          <%= paginate @events, theme: 'twitter-bootstrap-4'%>
+      </div>
+    </div>
+  </ul>
+</div>

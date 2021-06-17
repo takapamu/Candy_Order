@@ -48,13 +48,13 @@
           <% end %></li>
       </div>
       <div class="col-6">
-        <%= month_calendar products: @all do |date, all| %>
+     <%= month_calendar events: @events do |date, events| %>
           <%= date.day %>
-          <% all.each do |i| %>
-            <div>
-              <%= i.price %>
-            </div>
-          <% end %>
+            <% events.each do |event| %>
+              <div>
+                <%= event.title %>
+              </div>
+            <% end %>
         <% end %>
       </div>
    </div>
