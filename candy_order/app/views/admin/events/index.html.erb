@@ -1,6 +1,12 @@
 <div class="container">
   <ul>
     <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+         <%= render partial: 'layouts/flash' %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-4 offset-2">
         <h2>イベント一覧 <i class="fas fa-store-alt"></i></h2>
       </div>
@@ -11,12 +17,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-9 offset-3">
+        <table class="table table-borderless">
+          <tbody>
           <% @events.each do |event| %>
-            <%= link_to(admin_event_path(event), class: "list-group-item list-group-item-action") do %>
-              <%= event.title %>
-            <% end %>
+            <tr>
+              <th><%= link_to(admin_event_path(event), class: "list-group-item list-group-item-action") do %>
+                    <%= event.title %>
+                  <% end %></th>
+               <th style="padding-top: 18px;"><%= link_to "削除する", admin_event_path(event),method: :delete, class: "btn btn-danger",data: {confirm: "イベントを削除しますか？",cancel: 'やめる', commit: '削除'}, title: '削除の確認' %></th>
+             </tr>
           <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="row">

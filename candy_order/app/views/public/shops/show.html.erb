@@ -7,12 +7,25 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-1">
+      <div class="col-4 offset-1">
         <h2>店舗詳細 <i class="fas fa-store-alt"></i></i></h2>
+      </div>
+      <div class="col-3" style="padding-top: 20px">
+        <button class="learn-more">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <%= link_to "注文履歴一覧へ",orders_path,class: "button-text" %>
+        </button>
+      </div>
+      <div class="col-2" style="padding-top: 20px">
+       <%= link_to edit_shop_path(@shop) do %>
+         <%= image_tag "edit.jpg" , size: "40x40", style: "margin-left: 7px;" %><p style="color: black;">編集する</p>
+       <% end %>
       </div>
     </div>
     <div class="row">
-      <div class="col-5 offset-3">
+      <div class="col-6 offset-3">
         <table class="table table-borderless">
           <tbody>
             <tr>
@@ -37,10 +50,9 @@
             </tr>
           </tbody>
         </table>
-        <%= link_to "編集する", edit_shop_path, class: "btn btn-outline-success" %>
-        <%= link_to "注文履歴一覧", orders_path, class: "btn btn-outline-success"  %>
       </div>
-      <div class="col-6 offset-2">
+      </div>
+      <div class="col-6 offset-3">
        <% if @favorite_list.present? %>
         <h4>お気に入り一覧</h4>
           <table class="table table-borderless">

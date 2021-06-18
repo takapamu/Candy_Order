@@ -6,10 +6,12 @@
       </div>
     </div>
     <div class='row'>
+      <div class='col-6 offset-3'>
+        <%= render partial: 'layouts/flash' %>
+      <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+      </div>
       <div class='col-8 offset-4'>
-          <%= render partial: 'layouts/flash' %>
-        <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
-         <%= render 'layouts/error_messages', model: f.object %>
           <div class='form-group'>
             <label>写真</label><br>
             <%= f.attachment_field :image, placeholder:'写真' %>
@@ -40,12 +42,17 @@
             <%= f.radio_button :is_active, :true %>
             <%= f.label :is_active, '販売中', {value: :true, style: 'display: inline-block;'} %>
             <%= f.radio_button :is_active, :false %>
-            <%= f.label :is_active, '販売停止中', {value: :false, style: 'display: inline-block;'} %>
+            <%= f.label :is_active, '売り切れ中', {value: :false, style: 'display: inline-block;'} %>
           </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-6 offset-5'>
           <div class='form-group'>
             <%= f.submit '登録する', class:'btn btn-lg btn-outline-dark' %>
           </div>
-        <% end %>
+       </div>
       </div>
-    </ul>
-  </div>
+       <% end %>
+  </ul>
+</div>

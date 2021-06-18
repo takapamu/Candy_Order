@@ -7,8 +7,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-2">
-        <h2>イベント詳細 <i class="fas fa-candy-cane"></i></h2>
+      <div class="col-2 offset-1">
+        <%= link_to  admin_events_path do %>
+         <%= image_tag "back_icon.jpg" , size: "70x70" %>
+        <% end %>
+      </div>
+      <div class="col-4 offset-1">
+        <h2>イベント詳細</h2>
+      </div>
+      <div class="col-2">
+         <%= link_to edit_admin_event_path(@event) do %>
+           <%= image_tag "edit.jpg" , size: "50x50", style: "margin-left: 7px;" %><p style="color: black;">編集する</p>
+          <% end %>
       </div>
     </div>
     <div class="row">
@@ -19,8 +29,6 @@
         <h4><%= @event.content %></h4>
         <span>日にち</span>
         <h4><%= @event.start_time %></h4>
-      <%= link_to "イベント一覧に戻る", admin_events_path , class: "btn btn-info btn-sm" %>
-      <%= link_to "編集する", edit_admin_event_path(@event), class: "btn btn-success btn-sm" %>
       </div>
     </div>
   </ul>

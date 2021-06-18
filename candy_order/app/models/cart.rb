@@ -4,4 +4,5 @@ class Cart < ApplicationRecord
   
   accepts_nested_attributes_for :cart_products, allow_destroy: true #子モデルを保存
   
+  validates :quantity, numericality: {greater_than: 0}
 end

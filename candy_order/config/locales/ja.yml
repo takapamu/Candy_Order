@@ -17,4 +17,8 @@ ja:
         product_company: 製造元
         product_introduction: 商品説明
         product_price: 金額
+      event:
+        title: タイトル
+        content: 内容
+        start_time: 日にち
         

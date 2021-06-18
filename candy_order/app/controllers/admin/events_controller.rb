@@ -35,6 +35,17 @@ class Admin::EventsController < ApplicationController
       render 'edit'
     end
   end
+  
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      flash.now[:danger] = '削除しました。'
+      redirect_to admin_events_path
+    else
+      flash.now[:danger] = '削除に失敗しました。'
+      render 'index'
+    end
+  end
 
   private
 

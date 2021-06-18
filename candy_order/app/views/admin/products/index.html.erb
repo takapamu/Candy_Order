@@ -17,21 +17,36 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-9 offset-2">
         <table class="table">
           <thead>
             <tr>
               <th>商品</th>
               <th>価格(税抜)</th>
               <th></th>
+              <th>ステータス</th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="count">
           <% @products.each do |product| %>
              <tr>
-               <th><%= link_to product.product_name,admin_product_path(product.id)%></th>
+               <th><li class="link"><%= link_to product.product_name,admin_product_path(product.id), class: "text" %></li></th>
                <th><%= product.product_price %>円</th>
-               <th><%= link_to "詳細ページ",admin_product_path(product.id),class: "btn btn-info btn-sm" %></th>
+               <th>
+                 <% if product.is_active == true %>
+                   <th class='text-success'>販売中</th>
+                 <% else %>
+                   <th class='text-secondary'>売切れ</th>
+                 <% end %>
+               </th>
+               <th>
+                <button class="learn-more">
+                  <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                  </span>
+                  <%= link_to "詳細ページへ",admin_product_path(product.id),class: "button-text" %>
+                </button></th>
               </tr>
           <% end %>
           </tbody>

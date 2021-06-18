@@ -37,9 +37,11 @@
           <% @genres.each do |genre| %>
             <tr>
               <th></th>
-              <td><%= genre.name %></td>
-              <td><%= link_to "編集する", edit_admin_genre_path(genre)%></td>
-            </tr>
+              <td style="padding-top: 25px;"><%= genre.name %></td>
+              <td><%= link_to edit_admin_genre_path(genre) do %>
+                    <%= image_tag "edit.jpg" , size: "20x20", style: "margin-left: 7px;" %><p style="color: black; font-size: 12px;">編集する</p>
+                  <% end %></td>
+            </tr> 
           <% end %>
           </tbody>
         </table>
