@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'search/search'
+
   devise_for :admins, skip: :all
   devise_scope :admin do
     get 'admins/sign_in' => 'devise/sessions#new', as: :new_admin_session

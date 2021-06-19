@@ -1,6 +1,5 @@
 class Public::ProductsController < ApplicationController
 
-
   def index
     @q = Product.ransack(params[:q]) #ransrakの検索メソッド
     @products = @q.result(distinct: true).page(params[:page]).per(9)

@@ -7,13 +7,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-1">
+      <div class="col-7 offset-2">
         <h2>商品編集</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-8 offset-1">
         <%= form_with model:@product,url:admin_product_path, local:true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
           <table class="table table-borderless">
@@ -52,7 +52,11 @@
               </tr>
             </tbody>
           </table>
-        <%= f.submit "更新する",class: "btn btn-info" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7 offset-4">
+        <%= f.submit "更新する", class:'btn btn-lg btn-outline-dark' %>
         <% end %>
       </div>
     </div>

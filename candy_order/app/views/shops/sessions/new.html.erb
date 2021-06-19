@@ -1,36 +1,39 @@
 <div class="container">
  <ul>
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-9 offset-2">
       <%= flash[:error] %>
-      <h1 class="heading08">ログイン</h1>
-     <div class="m-5">
+      <h1>ログイン</h1>
+    </div>
+    <div class="col-8 offset-3">
       <h5><span style="background-color:#99FFCC">　会員の方はこちらからログイン　</span></h3>
-     </div>
+    </div>
+    <div class="col-8 offset-2">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="m-5">
-        <div class="field">
-         <%= f.label :メールアドレス, class: "under"  %>
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        <div class="field">
-         <%= f.label :パスワード, class: "under"  %>
-         <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-      </div>
-      <div class="section1 text-center">
-       <div class="form">
+         <table class="table table-borderless">
+           <tbody>
+            <tr>
+              <td style="text-align: center;"><%= f.label :email %></td>
+              <td> <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %></td>
+            </tr>
+             <tr>
+               <td style="text-align: center;"><%= f.label :password  %></td>
+               <td><%= f.password_field :password, autocomplete: "current-password",class: "form-control" %></td>
+             </tr>
+           </tbody>
+         </table>
+     </div>
+     <div class="col-8 offset-1">
+       <div class="form" style="margin-bottom: 30px;">
           <input type="submit" class="reset flat border2" value="ログイン">
        </div>
-      </div>
+     </div>
       <% end %>
- 
-      <div class="m-5">
+     <div class="col-8 offset-3">
        <h5><span style="background-color:#99FFCC">　会員登録がお済みでない方　</span></h3>
-      </div>
-      <div class="text-center">
-        <%= link_to 'こちら',new_shop_registration_path,class: "btn btn-info" %> から新規登録を行ってください。
-      </div>
+       <div>
+           <%= link_to 'こちら',new_shop_registration_path,class: "btn btn-info" %> から新規登録を行ってください。
+       </div>
      </div>
    </div>
   </ul>
