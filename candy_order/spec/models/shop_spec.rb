@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Shop do
   describe '#create' do
-    it 'is valid' do
+    it '会員登録' do
       shop = build(:shop)
       shop.valid?
       expect(shop).to be_valid
