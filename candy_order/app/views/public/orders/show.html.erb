@@ -1,16 +1,11 @@
 <div class='container'>
   <ul>
-    <div class="row">
-      <div class="col-7 offset-1">
-        <h2>注文履歴詳細 <i class="fas fa-dog"></i></h2>
-      </div>
-    </div>
     <div class='row'>
       <div class='col-6 offset-1'>
         <table>
           <tbody>
             <tr>
-              <th >購入日</th>
+              <th>発注日 </th>
               <th><%= @order.created_at %></th>
             </tr>
           </tbody>
@@ -31,8 +26,8 @@
             <% @order_details.each do |order_detail| %>
               <tr>
                 <th><li class="link"><%= link_to order_detail.product.product_name,product_path(order_detail.product.id), class: "text" %></li></th>
-                <th><%= order_detail.quantity %></th>
-                <th><%= tax_subtotal(order_detail.product.product_price,order_detail.quantity) %></th>
+                <th><%= order_detail.quantity %>個</th>
+                <th><%= tax_subtotal(order_detail.product.product_price,order_detail.quantity) %>円(税込み)</th>
               </tr>
             <% end %>
           </body>

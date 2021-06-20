@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col-8">
-        <h2>通知 <i class="far fa-bell"></i></h2>
+         <h2 class="heading06" data-en="Notification"></h2>
       </div>
     </div>
     <div clas="row">
       <div class="col-5 offset-3">
-            <%= link_to destroy_all_notifications_path, method: :delete do %>
+            <%= link_to destroy_all_notifications_path, method: :delete, data: {confirm: "通知を全て削除しますか？",cancel: 'やめる', commit: '削除'}, title: '削除の確認' do %>
                 <i class="fas fa-trash" style="color: black;"></i>
                 <h7 style="color: black;">全削除</h7>
             <% end %>
