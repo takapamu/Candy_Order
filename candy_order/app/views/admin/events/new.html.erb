@@ -1,14 +1,14 @@
 <div class='container'>
   <ul>
     <div class='row'>
-      <div class='col-4 offset-1'>
-        <h2>イベント登録</h2>
+      <div class='col-7 offset-2' style="padding-right: 50px;">
+       <h2 class="heading06" data-en="New Event"></h2>
       </div>
     </div>
     <div class='row'>
       <div class='col-6 offset-3'>
          <%= render partial: 'layouts/flash' %>
-　     <%= form_with model: @event,url: admin_events_path, local: true do |f| %>
+         <%= form_with model: @event,url: admin_events_path, local: true do |f| %>
          <%= render 'layouts/error_messages', model: f.object %>
       </div>
       <div class='col-8 offset-3'>
