@@ -1,18 +1,18 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-2">
+      <div class="col-sm-7 offset-2">
          <h2 class="heading06" data-en="Genre"></h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-5 offset-1">
+      <div class="col-sm-5 offset-1">
         <div class='newitem'>
         <%= form_with model:@genre, url: admin_genres_path, local:true do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
@@ -24,7 +24,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-5 offset-1">
+      <div class="col-sm-5 offset-1">
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -38,9 +38,11 @@
             <tr>
               <th></th>
               <td style="padding-top: 25px;"><%= genre.name %></td>
-              <td><%= link_to edit_admin_genre_path(genre) do %>
-                    <%= image_tag "edit.jpg" , size: "20x20", style: "margin-left: 7px;" %><p style="color: black; font-size: 12px;">編集する</p>
-                  <% end %></td>
+              <td>
+                <%= link_to edit_admin_genre_path(genre) do %>
+                  <%= image_tag "edit.jpg" , size: "20x20", style: "margin-left: 7px;" %><p style="color: black; font-size: 12px;">編集する</p>
+                <% end %>
+              </td>
             </tr>
           <% end %>
           </tbody>

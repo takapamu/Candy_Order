@@ -1,17 +1,17 @@
 <div class='container'>
   <ul>
     <div class='row'>
-      <div class='col-8 offset-2' style="padding-right: 190px;">
+      <div class='col-sm-8 offset-3' style="padding-right: 190px;">
         <h2 class="heading06" data-en="New Product"></h2>
       </div>
     </div>
     <div class='row'>
-      <div class='col-8 offset-4'>
+      <div class='col-sm-8 offset-4'>
         <%= render partial: 'layouts/flash' %>
       <%= form_with model:@product, url:admin_products_path, local: true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
       </div>
-      <div class='col-8 offset-3'>
+      <div class='col-sm-8 offset-3' style="padding-left: 80px;">
         <table class="table table-borderless">
             <tbody>
              <tr>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row">
-      <div class='col-6 offset-4'>
+      <div class='col-sm-7 offset-5'>
           <div class='form-group'>
             <%= f.submit '登録する', class:'btn btn-lg btn-outline-dark' %>
           </div>

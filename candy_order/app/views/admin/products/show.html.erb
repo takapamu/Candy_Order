@@ -1,30 +1,30 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-8">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 offset-1">
+      <div class="col-sm-2 offset-1">
       <%= link_to  admin_products_path do %>
        <%= image_tag "back_icon.jpg" , size: "70x70" %>
       <% end %>
       </div>
-      <div class="col-4 offset-2">
+      <div class="col-sm-4 offset-2">
       </div>
-      <div class="col-2">
+      <div class="col-sm-2">
          <%= link_to edit_admin_product_path(@product) do %>
            <%= image_tag "edit.jpg" , size: "50x50", style: "margin-left: 7px;" %><p style="color: black;">編集する</p>
           <% end %>
       </div>
     </div>
     <div class="row">
-      <div class="col-3 offset-2">
+      <div class="col-sm-3 offset-2">
         <%= attachment_image_tag @product, :image, :fill, 300, 200, format:'jpeg', fallback:'no_image.jpg' %>
       </div>
-      <div class="col-6 offset-1">
+      <div class="col-sm-6 offset-1">
         <span>商品名</span>
         <h4><%= @product.product_name %></h4>
         <span>商品説明</span>

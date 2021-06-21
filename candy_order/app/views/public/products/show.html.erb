@@ -1,8 +1,8 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
@@ -10,10 +10,10 @@
        <%= image_tag "back_icon.jpg" , size: "70x70" %>
       <% end %>
     <div class="row">
-      <div class="col-3 offset-2">
+      <div class="col-sm-3 offset-2">
         <%= attachment_image_tag @product, :image, :fill, 300, 300, format:'jpeg', fallback:'no_image.jpg' %>
       </div>
-      <div class="col-6 offset-1">
+      <div class="col-sm-6 offset-1">
         <table class="table table-borderless">
           <tbody>
             <tr>

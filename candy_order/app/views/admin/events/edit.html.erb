@@ -1,19 +1,19 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-2">
+      <div class="col-sm-7 offset-2">
        <h2 class="heading06" data-en="Edit Event"></h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8 offset-1" style="padding-left: 50px;">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 offset-1" style="padding-left: 50px;">
         <%= form_with model:@event,url:admin_event_path, local:true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
           <table class="table table-borderless">

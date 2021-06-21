@@ -1,6 +1,6 @@
 <div class="container" style="margin-left: 100px; margin-right: 100px;">
   <div class="row">
-    <div class="col-3">
+    <div class="col-sm-3">
       <table class="table table-bordered genre-table" style="background-color: #FFFFFF;">
         <thead>
           <tr>
@@ -18,12 +18,12 @@
         </tbody>
       </table>
     </div>
-    <div class="col-9">
+    <div class="col-sm-9">
       <ul>
-        <div class="col-4 offset-4">
+        <div class="col-sm-4 offset-4">
           <h2 style="text-align: center;">商品一覧 <i class="fas fa-candy-cane"></i></h2>
         </div>
-        <div class="col-4 offset-9">
+        <div class="col-sm-4 offset-9">
          <%= search_form_for @search, url: search_products_path ,html:{ method: :post} do |f| %>
          <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'product_price asc', '価格の高い順': 'product_price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} ) %>
          <%= f.submit '完了' %>
@@ -42,18 +42,18 @@
               <%= number_field_tag "cart_products[][quantity]", "",style: "width: 5em; margin: 7px 0;", min: "0" %>個
            </div>
             <% end %>
-          <div class="col-7 offset-4" style="margin-top: 30px; padding-left: 40px;">
+          <div class="col-sm-7 offset-4" style="margin-top: 30px; padding-left: 40px;">
               <%= f.button :type => "submit" , class: "btn btn-danger btn-lg" do %>
                 <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
               <% end %>
           </div>
-          <div class="col-7 offset-3" style="margin-top: 30px; padding-left: 45px;">
+          <div class="col-sm-7 offset-3" style="margin-top: 30px; padding-left: 45px;">
               <h6 style="padding-left: 75px;">まとめて追加する際は、</h6>
               <h6 style="color: red; padding-left: 30px;">「ページごと」で、追加して下さい</h6>
               <h6 style="color: red;">⚠ページをまたいで追加することは出来ません。</h6>
           </div>
       <% end %>
-      <div class="col-7 offset-5" style="padding-left: 10px;">
+      <div class="col-sm-7 offset-5" style="padding-left: 10px;">
         <%= paginate @products, theme: 'twitter-bootstrap-4'%>
       </div>
      </ul>

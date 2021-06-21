@@ -1,18 +1,18 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
     <div class="row">
-      <div class="col-8 offset-4">
+      <div class="col-sm-8 offset-4">
         <p style="font-size: x-large;">この内容で発注しますか？</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-8 offset-2"> 
+      <div class="col-sm-8 offset-2"> 
         <table class="table table-borderless">
           <thead>
             <tr>
@@ -38,12 +38,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-5 offset-7">
+      <div class="col-sm-5 offset-7">
         <h3>合計金額　<%= tax_total_price(@cart_products) %>円</h3>
       </div>
     </div>
     <div class="row">
-      <div class="col-6 offset-5">
+      <div class="col-sm-6 offset-5">
         <%= form_with model:@order, local:true do |f| %>
         <%= f.submit "注文する",class: "btn btn-outline-dark" %>
         <% end %>
