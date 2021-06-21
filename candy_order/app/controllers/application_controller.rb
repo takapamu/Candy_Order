@@ -6,19 +6,20 @@ class ApplicationController < ActionController::Base
      before_action :set_search
 
      def set_search
-      @q = Product.ransack(params[:q]) #ransrakの検索メソッド
+     @q = Product.ransack(params[:q]) #ransrakの検索メソッド
       @search = Product.ransack(params[:q])
       @products = @q.result(distinct: true).page(params[:page]).per(10)
      end
 
      def current_cart
-      if current_shop
+       if current_shop
+        # ユーザーとカートの紐付け
          current_cart = current_shop.cart || current_shop.create_cart!
-      else
+       else
         current_cart = Cart.find_by(id: session[:cart_id]) || Cart.create
         session[:cart_id] = current_cart.id
-      end
-        current_cart
+       end
+       current_cart
      end
 
     protected

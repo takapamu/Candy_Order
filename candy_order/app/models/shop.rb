@@ -24,5 +24,5 @@ class Shop < ApplicationRecord
   def send_welcome_email
     ShopNoticeMailer.send_signup_email(self).deliver
   end
-
+  
 end

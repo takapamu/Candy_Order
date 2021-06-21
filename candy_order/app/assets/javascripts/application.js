@@ -43,7 +43,6 @@ $(function() {
   });
 });
 
-// 読み込んだらフェードアウト
 $(window).load(function () {
     // 消えるタイミングはお好みで
     $('.loading').delay(1500).fadeOut(300);
@@ -53,20 +52,3 @@ function stopload(){
     $('.loading').delay(1000).fadeOut(700);
 }
 setTimeout('stopload()',10000);
-
-$(function() {
-            /* SP menu */
-            function toggleNav() {
-                var body = document.body;
-                var hamburger = document.getElementById('nav_btn');
-                var blackBg = document.getElementById('nav_bg');
-                hamburger.addEventListener('click', function() {
-                    body.classList.toggle('nav_open'); //メニュークリックでnav-openというクラスがbodyに付与
-                });
-                blackBg.addEventListener('click', function() {
-                    body.classList.remove('nav_open'); //もう一度クリックで解除
-                });
-            }
-            toggleNav();
-        });
-
