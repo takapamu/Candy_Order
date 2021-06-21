@@ -8,7 +8,7 @@
           <% @datas.each do |data| %>
             <div class="inline-block" style="width: 25%;">
               <%= link_to product_path(data.id) do %>
-                <%= attachment_image_tag data, :image, size: "125x125", class: "img_hover" %><br>
+                <%= attachment_image_tag data, :image, size: "125x125", class: "img_wrap" %><br>
               <% end %>
                <li class="link"><%= link_to data.product_name, product_path(data.id), class: "text" %></li><br>
                <%= tax_price(data.product_price) %>円
