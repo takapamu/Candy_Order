@@ -1,6 +1,6 @@
 FactoryBot.define do
  factory :shop do
-   name              {"test"}
+   name                  {"test"}
    email                 {"test@gmail.com"}
    postal_code           {1111111}
    address               {"東京都"}

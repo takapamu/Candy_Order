@@ -11,6 +11,12 @@ describe 'ジャンル新規投稿のテスト' do
     visit  admin_genres_path(admin, genre)
   end
   describe '表示のテスト' do
+    context '一覧画面への遷移' do
+      it '遷移できる' do
+        visit  admin_genres_path(admin, genre)
+         eq('/admin/' + '/genres/')
+      end
+    end
     context '新規投稿画面' do
       before do
         visit admin_genres_path(admin, genre)
@@ -28,6 +34,17 @@ describe 'ジャンル新規投稿のテスト' do
       it '遷移できる' do
         visit  edit_admin_genre_path(admin, genre)
          eq('/admin/' + '/genres/' + genre.id.to_s + '/edit')
+      end
+    end
+     context '編集画面' do
+      before do
+        visit edit_admin_genre_path(admin, genre)
+      end
+      it 'ジャンル名フォームが表示される' do
+        expect(page).to have_field 'genre[name]'
+      end
+      it '更新するボタンが表示される' do
+        expect(page).to have_button '更新する'
       end
     end
   end
