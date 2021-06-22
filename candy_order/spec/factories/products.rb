@@ -4,5 +4,8 @@ FactoryBot.define do
    product_company        {"test"}
    product_introduction   {"test"}
    product_price          {111}
+   
+   association :genre #外部キー所得
+     
  end
 end

@@ -31,6 +31,13 @@
               <%= number_field_tag "cart_products[][quantity]", "",style: "width: 5em; margin: 7px 0;", min: "0" %>個</td>
             </tr>
             <tr>
+              <% if @product.is_active == true %>
+                   <th class='text-success'>在庫あり</th>
+              <% else %>
+                   <th class='text-danger'>売切れ</th>
+              <% end %>
+            </tr>
+            <tr>
               <td><%= f.button :type => "submit", class: "btn btn-danger w-75" do %>
                   <i class="fas fa-shopping-cart" style="color: #FFF;"> 商品を追加する</i>
                 <% end %>
@@ -46,7 +53,11 @@
             </tr>
           </tbody>
         </table>
-      </div>
+     </div>
+    <div class="col-sm-12" style="border-top: groove;">
+      <h5 style="margin-top: 10px;">商品説明</h5>
+      <%= @product.product_introduction %>
     </div>
+  </div>
   </ul>
 </div>
