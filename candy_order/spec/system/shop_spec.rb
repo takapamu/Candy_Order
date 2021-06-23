@@ -35,7 +35,7 @@ describe 'マイページのテスト' do
   describe '表示のテスト' do
     context '詳細画面への遷移' do
       it '遷移できる' do
-        sign_in @shop
+        sign_in @shop #ログイン状態を保持
         visit  shop_path(@shop)
       end
     end
