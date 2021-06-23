@@ -18,15 +18,15 @@
                 <% end %>
               </div>
             <% end %>
-            <div class="form-field col x-50">
+            <div class="form-field">
                <%= f.text_field :name, class: "input-text js-input" %>
                <label class="label" for="name">Name</label>
             </div>
-            <div class="form-field col x-50">
+            <div class="form-field">
                <%= f.text_field :email,class: "input-text js-input" %>
                <label class="label" for="email">E-mail</label>
             </div>
-            <div class="form-field col x-100">
+            <div class="form-field">
                 <td><%= f.text_area :message,class: "input-text js-input"%></td>
                <label class="label" for="message">Message</label>
             </div>
@@ -34,10 +34,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-7 offset-5" style="padding-left: 50px;">
+      <div class="col-7 offset-4" style="padding-left: 90px;" >
         <div class="contact-form">
-          <div class="form-field col x-100">
-             <input class="submit-btn" type="submit" value="送信する">
+          <div class="form-field">
+             <input type="submit" value="送信内容を確認する" class="submitbtn"/>
           </div>
           <% end %>
         </div>

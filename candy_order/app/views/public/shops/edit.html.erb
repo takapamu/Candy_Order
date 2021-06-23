@@ -6,40 +6,47 @@
          <%= render partial: 'layouts/flash' %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-8 offset-3">
-      <%= form_with model:@shop, local:true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-        <table class="table table-borderless">
-          <tr>
-            <td><lebel>氏名</lebel></td>
-            <td><%= f.text_field :name,class:"form-control"  %></td>
-           </tr>
-           <tr>
-            <td><lebel>郵便番号</lebel></td>
-            <td><%= f.text_field :postal_code, class:"form-control"  %></td>
-           </tr>
-           <tr>
-             <td><lebel>住所</lebel></td>
-             <td><%= f.text_field :address,class:"form-control" %></td>
-           </tr>
-           <tr>
-             <td><lebel>電話番号</lebel></td>
-             <td><%= f.telephone_field :telephone_number,class:"form-control"  %></td>
-           </tr>
-           <tr>
-             <td><lebel>メールアドレス</lebel></td>
-             <td><%= f.email_field :email,class:"form-control"  %></td>
-            </tr>
-        </table>
+     <div class='row'>
+      <div class='col-sm-7 offset-2' style="padding-right: 50px;">
+       <h2 class="heading06" data-en="Edit Information"></h2>
       </div>
     </div>
+    <div class="contact-form">
+    <div class="row">
+      <div class="col-8 offset-2">
+         <%= form_with model:@shop, local:true do |f| %>
+           <%= render 'layouts/error_messages', model: f.object %>
+      </div>
+      <div class="col-8 offset-3" style="padding-left: 50px">
+             <div class="form-field col x-50">
+               <%= f.text_field :name, class: "input-text js-input" %>
+               <label class="label" for="name">Name</label>
+             </div>
+             <div class="form-field col x-50">
+               <%= f.email_field :email, class: "input-text js-input" %>
+               <label class="label" for="email">Email</label>
+             </div>
+             <div class="form-field col x-50">
+               <%= f.text_field :postal_code, class: "input-text js-input" %>
+               <label class="label" for="postal_code">Postal_Code</label>
+             </div>
+              <div class="form-field col x-50">
+               <%= f.text_field :address, class: "input-text js-input" %>
+               <label class="label" for="address">Address</label>
+             </div>
+             <div class="form-field col x-50">
+               <%= f.text_field :telephone_number, class: "input-text js-input" %>
+               <label class="label" for="telephone_number">Telephone_Number</label>
+             </div>
+          </div>
+        </div>
+      </div>
     <div class="row">
       <div class="col-sm-8 offset-2">
-            <div class="form-group" style="text-align: center; padding-right: 30px;">
-            <%= f.submit "編集内容を保存",class: "btn btn-outline-dark" %>
-            </div>
-      <% end %>
+        <div class="form-group" style="text-align: center; padding-right: 30px;">
+        <%= f.submit "編集内容を保存",class: "btn btn-outline-dark" %>
+        </div>
+        <% end %>
       </div>
     </div>
   </ul>

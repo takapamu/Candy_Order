@@ -11,24 +11,24 @@
         <h2 class="heading06" data-en="Edit Genre"></h2>
       </div>
     </div>
+    <div class="contact-form">
     <div class="row">
       <div class="col-sm-8 offset-2">
         <%= form_for(@genre, url: admin_genre_path(@genre)) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
       </div>
-      <div class="col-sm-3 offset-2" style="text-align: center;">
-        <%= f.label :name %>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-          <%= f.text_field :name,class:"form-control" %>
+      <div class="col-sm-6 offset-4">
+        <div class="form-field col x-50">
+          <%= f.text_field :name, class: "input-text js-input" %>
+          <label class="label" for="name">Genre_Name</label>
         </div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-7 offset-5" style="padding-left: 50px;">
         <%= f.submit '更新する', class: "btn btn-outline-dark"%>
       </div>
         <% end %>
-      </div>
+    </div>
     </div>
   </ul>
 </div>
+

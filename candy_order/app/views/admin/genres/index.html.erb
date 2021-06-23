@@ -12,18 +12,20 @@
       </div>
     </div>
     <div class="row">
+      <div class="contact-form">
       <div class="col-sm-5 offset-1">
-        <div class='newitem'>
         <%= form_with model:@genre, url: admin_genres_path, local:true do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
-            <div class="form-group">
-              <label for='inputName title'>Genre_name</label><br>
-              <%= f.text_field :name, autofocus: true, id:'inputName' %>
-              <%= f.submit '登録する', class:'btn  btn-outline-dark' %>
+            <div class="form-field col x-50">
+                 <%= f.text_field :name, class: "input-text js-input" %>
+                 <label class="label" for="name">Genre_Name</label>
+             </div>
             </div>
+            <div class="col-sm-5 offset-5">
+              <%= f.submit '登録する', class:'btn  btn-outline-dark' %>
           <% end %>
+          </div>
         </div>
-      </div>
       <div class="col-sm-5 offset-1">
         <table class="table">
           <thead class="thead-light">
