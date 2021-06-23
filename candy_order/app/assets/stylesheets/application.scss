@@ -131,8 +131,6 @@ h6{
 }
 
 //header
-
-
 *,
 *:after,
 *::before {
@@ -145,6 +143,29 @@ h6{
     list-style-type: none;
     outline: none;
 }
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-right: 200px;
+    margin-bottom: 40px;
+}
+
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    list-style: none;
+    border: none;
+    background: none;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,800,400&subset=latin,latin-ext);
 
 ul {
@@ -153,33 +174,6 @@ ul {
     border-radius: 30px;
     border: groove;
     width: 100%;
-}
-
-//ログインボタン
-
-.flat.border2 {
-  position: relative;
-  text-align: center;
-  /* 中央揃え */
-  display: block;
-  margin: 0 auto;
-  /* 幅の指定 */
-  width: 100%;
-  max-width: 200px;
-  box-sizing: border-box;
-  padding: 10px;
-  /* 色の指定 */
-  background: linear-gradient(135deg, #ffd900, #ff9300);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.flat.border2:hover {
-  background: repeating-linear-gradient(135deg, rgba(255,255,255, 0.3), rgba(255,255,255, 0.3) 2px, transparent 2px, transparent 4px), linear-gradient(135deg, #ffd900, #ff9300);
-}
-.flat.border2:active, .flat.border2:focus {
-  top: 2px;
 }
 
 .size{
@@ -191,25 +185,6 @@ ul {
   width: 100%;
 }
 
-
-
-/*検索ボタン*/
-.sbtn{
-width:70px;/*検索ボタンの横幅*/
-height:30px;/*検索ボタンの縦幅*/
-left:270px;/*検索ボタンの位置調整*/
-top:0;
-border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
-background:#7fbfff;/*検索ボタンの背景カラー*/
-border:none;/*検索ボタンの枠線を消す*/
-color:#fff;/*検索ボタンのテキストカラー*/
-font-weight:bold;/*検索ボタンのテキスト太字*/
-font-size:16px;/*検索ボタンのフォントサイズ*/
-}
-/*検索ボタンマウスオーバー時*/
-.sbtn:hover{
-color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
-}
 
 //お問い合わせ
 
@@ -234,28 +209,6 @@ a.btn-c i.fa {
   margin-right: 1rem;
 }
 
-
-.navbar {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-right: 200px;
-    margin-bottom: 40px;
-}
-
-
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 0;
-    font-size: 20px;
-    list-style: none;
-    border: none;
-    background: none;
-}
 
 .navigation{
   /* flexboxで要素を真ん中に指定 */
@@ -317,28 +270,6 @@ a.btn-c i.fa {
     text-align: center;
     border: none;
     background: none;
-}
-
-//新規登録アイコン
-
-.fa-store:before {
-    content: "\f54e";
-    font-size: 17px;
-}
-
-.fa-envelope:before {
-    content: "\f0e0";
-    font-size: 17px;
-}
-
-.fa-phone-alt:before {
-    content: "\f879";
-    font-size: 17px;
-}
-
-.fa-lock:before {
-    content: "\f023";
-    font-size: 17px;
 }
 
 //矢印ボタン
@@ -551,6 +482,8 @@ button {
   }
 }
 
+//見出し
+
 .heading06 {
 	position: relative;
 	padding-top: 50px;
@@ -574,6 +507,7 @@ button {
 	font-style: italic;
 }
 
+//画像浮き出る
 
 .img_wrap{
   border: 1px solid #ddd;
@@ -594,3 +528,120 @@ button {
 }
 
 
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+@import url(https://fonts.googleapis.com/css?family=Lusitana:400,700);
+
+// Helpers
+@mixin clearfix {
+   &:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+}
+
+.align-center {
+   text-align: center;
+}
+
+
+
+
+.content-wrapper {
+   min-height: 100%;
+   position: relative;
+}
+
+.get-in-touch {
+   max-width: 650px;
+   margin: 0 auto;
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%);
+
+  .title {
+     text-align: center;
+     font-family: Raleway, sans-serif;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+     font-size: 36px;
+     line-height: 48px;
+     padding-bottom: 48px;
+  }
+}
+
+.contact-form {
+   .form-field {
+      position: relative;
+      margin: 32px 0;
+   }
+   .input-text {
+      display: block;
+      width: 350px;
+      height: 36px;
+      border-width: 0 0 2px 0;
+      border-color: #000;
+      font-family: Lusitana, serif;
+      font-size: 18px;
+      text-align: center;
+      line-height: 26px;
+      font-weight: 400;
+
+      &:focus {
+         outline: none;
+      }
+
+      &:focus,
+      &.not-empty {
+         + .label {
+            transform: translateY(-24px);
+         }
+      }
+   }
+   .label {
+      position: absolute;
+      left: 20px;
+      bottom: 11px;
+      font-family: Lusitana, serif;
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 400;
+      color: #888;
+      cursor: text;
+      transition: transform .2s ease-in-out;
+   }
+
+   .submit-btn {
+      display: inline-block;
+      background-color: #000;
+      color: #fff;
+      font-family: Raleway, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+   }
+}
+
+.note {
+   position: absolute;
+   left: 0;
+   bottom: 10px;
+   width: 100%;
+   text-align: center;
+   font-family: Lusitana, serif;
+   font-size: 16px;
+   line-height: 21px;
+
+   .link {
+      color: #888;
+      text-decoration: none;
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}

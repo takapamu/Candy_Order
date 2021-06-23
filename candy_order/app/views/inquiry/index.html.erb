@@ -1,42 +1,54 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-sm-7 offset-1">
-        <h2>お問い合わせ</h2>
+      <div class="col-sm-8 offset-2">
+        <section class="get-in-touch">
+        <h2 class="heading06" data-en="inquiry"></h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-7 offset-2">
-        <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-          <% if @inquiry.errors.any? %>
-            <div class="alert alert-danger" role="alert">
-              <strong>入力内容にエラーがあります</strong>
+      <div class="col-8 offset-4">
+        <div class="contact-form">
+          <%= form_for @inquiry, :url => inquiry_confirm_path,class:"contact-form row" do |f| %>
+            <% if @inquiry.errors.any? %>
+              <div class="alert alert-danger" role="alert">
+                <strong>入力内容にエラーがあります</strong>
                 <% @inquiry.errors.each do |attr, msg| %>
                   <li><%= msg %></li>
                 <% end %>
+              </div>
+            <% end %>
+            <div class="form-field col x-50">
+               <%= f.text_field :name, class: "input-text js-input" %>
+               <label class="label" for="name">Name</label>
             </div>
-          <% end %>
-        <table class="table">
-          <tr>
-            <th>名前<span class="text-danger">（必須）</span></th>
-            <td><%= f.text_field :name, class: "form-control", style: "width: 90%;" %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス<span class="text-danger">（必須）</span></th>
-            <td><%= f.text_field :email, class: "form-control", style: "width: 90%;"  %></td>
-          </tr>
-          <tr>
-            <th>お問い合わせ内容</th>
-            <td><%= f.text_area :message, class: "form-control", style: "width: 90%;"  %></td>
-          </tr>
-        </table>
+            <div class="form-field col x-50">
+               <%= f.text_field :email,class: "input-text js-input" %>
+               <label class="label" for="email">E-mail</label>
+            </div>
+            <div class="form-field col x-100">
+                <td><%= f.text_area :message,class: "input-text js-input"%></td>
+               <label class="label" for="message">Message</label>
+            </div>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-7 offset-5">
-        <%= f.submit '送信', class: 'btn btn-primary btn-lg' %>
-       <% end %>
+      <div class="col-7 offset-5" style="padding-left: 50px;">
+        <div class="contact-form">
+          <div class="form-field col x-100">
+             <input class="submit-btn" type="submit" value="送信する">
+          </div>
+          <% end %>
+        </div>
+        </section>
       </div>
     </div>
   </ul>
 </div>
+
+
+
+
+
+

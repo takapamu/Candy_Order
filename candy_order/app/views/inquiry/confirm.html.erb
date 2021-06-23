@@ -1,14 +1,14 @@
 <div class="container">
   <ul>
     <div class="row">
-      <div class="col-sm-7 offset-1">
-        <h2>お問い合わせ</h2>
+      <div class="col-sm-7 offset-4">
+        <p style="font-size: x-large;">この内容で送信しますか？</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-7 offset-2">
+      <div class="col-sm-7 offset-3" style="margin-top: 30px;">
         <%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
-          <table class="table">
+          <table class="table table-borderless">
             <tr>
               <th>名前</th>
               <td>

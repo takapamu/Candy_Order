@@ -1,3 +1,22 @@
 // Place all the styles related to the Search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*検索ボタン*/
+.sbtn{
+width:70px;
+height:30px;
+left:270px;
+top:0;
+border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+background:#7fbfff;/*検索ボタンの背景カラー*/
+border:none;/*検索ボタンの枠線を消す*/
+color:#fff;
+font-weight:bold;
+font-size:16px;
+}
+/*検索ボタンマウスオーバー時*/
+.sbtn:hover{
+color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+}

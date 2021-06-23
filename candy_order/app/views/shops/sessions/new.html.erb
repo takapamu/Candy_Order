@@ -1,40 +1,35 @@
 <div class="container">
- <ul>
-  <div class="row">
-    <div class="col-9 offset-1" style="padding-left: 80px;">
-      <%= flash[:error] %>
-      <h2 class="heading06" data-en="Log in"></h2>
+  <ul>
+    <div class="row">
+      <div class="col-9 offset-1" style="padding-left: 80px;">
+        <section class="get-in-touch">
+        <h2 class="heading06" data-en="Log in"></h2>
+      </div>
     </div>
-    <div class="col-8 offset-4">
-      <h5><span style="background-color:#99FFCC">　会員の方はこちらからログイン　</span></h3>
+    <div class="row">
+      <div class="col-8 offset-3" style="padding-left: 100px;">
+        <div class="contact-form row">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+              <div class="form-field col x-50">
+                <%= f.email_field :email, class: "input-text js-input" %>
+                <label class="label" for="email">Email</label>
+              </div>
+              <div class="form-field col x-50">
+                <%= f.password_field :password, class: "input-text js-input",autocomplete: "new-password" %>
+                <label class="label" for="password">Password</label>
+              </div>
+         </div>
+      </div>
     </div>
-    <div class="col-8 offset-3">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-         <table class="table table-borderless">
-           <tbody>
-            <tr>
-              <td style="text-align: center;"><%= f.label :email %></td>
-              <td> <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %></td>
-            </tr>
-             <tr>
-               <td style="text-align: center;"><%= f.label :password  %></td>
-               <td><%= f.password_field :password, autocomplete: "current-password",class: "form-control" %></td>
-             </tr>
-           </tbody>
-         </table>
-     </div>
-     <div class="col-8 offset-2">
-       <div class="form" style="margin-bottom: 30px;">
-          <input type="submit" class="reset flat border2" value="ログイン">
-       </div>
-     </div>
-      <% end %>
-     <div class="col-8 offset-4" style="padding-left: 40px;">
-       <h5><span style="background-color:#99FFCC">　会員登録がお済みでない方　</span></h3>
-       <div>
-           <%= link_to 'こちら',new_shop_registration_path,class: "btn btn-info" %> から新規登録を行ってください。
-       </div>
-     </div>
-   </div>
+    <div class="row">
+      <div class="col-8 offset-1" style="padding-left: 80px;">
+        <div class="form" style="margin: 20px; padding-left: 120px;" >
+         <input type="submit" class="reset flat border2" value="ログイン">
+        </div>
+          <% end %>
+      </div>
+        </section>
+    </div>
   </ul>
 </div>
