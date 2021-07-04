@@ -5,18 +5,30 @@
     <title>CandyOrder</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <!--<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name=”viewport” content=”width=device-width, initial-scale=1”>
   </head>
-  
   <body>
+    
 
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <%= render 'layouts/header' %>
+    <div id="main-menu" style="text-align: end; margin-bottom: 30px; padding-right: 200px;">
+      <%= search_form_for @q, style: "width: max-content;" do |f|  %>
+       <%= f.search_field :product_name_or_product_company_cont,placeholder: "キーワード検索", text: "margin-right: 10px;" %>
+      <%= f.submit "検索",class: "sbtn" %>
+      <% end %>
+    </div>
+
+    
     <%= yield %>
     
   </body>
